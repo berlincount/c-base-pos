@@ -1,0 +1,484 @@
+/*
+ Copyright ©2008 flatline IT services / Andreas Kotes <count@flatline.de>
+ Alle Rechte vorbehalten / All rights reserved.
+ Lizensiert 2008-2011 an den c-base e.V.
+ Licensed 2008-2011 to the c-base e.V.
+
+ !!! DO NOT MODIFY !!!
+*/
+/*
+ c-base colors:
+  black:  #000000
+  white:  #ffffff
+  orange: #ff9900
+  red:    #690e0d
+  green:  #375f2a
+  x1:     #0b1729
+  x2:     #0c1c2a
+  x3:     #63738f
+  x4:     #9ba8bf
+  x5:     #46b6ee
+  x6:     #22374c
+*/
+
+/* provide our font */
+@font-face {
+    font-family: 'inconsolata';
+    src: url('inconsolata-webfont.eot');
+    src: url('inconsolata-webfont.eot?#iefix') format('embedded-opentype'),
+         url('inconsolata-webfont.woff') format('woff'),
+         url('inconsolata-webfont.ttf') format('truetype'),
+         url('inconsolata-webfont.svg#inconsolatamedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* set common parameters */
+body {
+   -moz-user-select: none;
+   background-color: #000000;
+   color:            #ffffff;
+   margin:           0px;
+   padding-top:      1px;
+   padding-left:     22px;
+   font-family:      'inconsolata';
+   cursor:           crosshair;
+   overflow:         hidden;
+}
+
+/* common formatting */
+table {
+   background-color: #000000;
+   margin:           0px;
+   padding-top:      0px;
+   padding-left:     0px;
+}
+
+td {
+   color:            #000000;
+   text-align:       center;
+}
+/* debugging */
+td.debug {
+   color:            #000000;
+   text-align:       left;
+   font-size:        9px;
+}
+/* date/time */
+td.datetime {
+   color:            #ffffff;
+   font-size:        18px;
+}
+/* righthand control elements */
+td.control {
+   background-color: #ff9900;
+   font-size:        14px;
+   font-weight:      bold;
+}
+td.control[disabled] {
+   background-color: #0b1729;
+   color:            #22374c;
+}
+td.control[touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+td.control[id=esc] {
+   background-color: #690e0d;
+   color:            #ffffff;
+   font-size:        48px;
+}
+td.control[id=esc][disabled] {
+   background-color: #0b1729;
+   color:            #22374c;
+}
+td.control[id=esc][touched] {
+   background-color: #0b1729;
+   color:            #690e0d;
+}
+td.control[id=book] {
+   background-color: #375f2a;
+   color:            #ffffff;
+   font-size:        48px;
+}
+td.control[id=book][disabled] {
+   background-color: #0b1729;
+   color:            #22374c;
+}
+td.control[id=book][touched] {
+   background-color: #0b1729;
+   color:            #375f2a;
+}
+td.control[id=is_member] {
+   background-color: #375f2a;
+   color:            #ffffff;
+   font-size:        29px;
+}
+td.control[id=is_member][touched] {
+   background-color: #0b1729;
+   color:            #375f2a;
+}
+td.control[id=is_member][disabled] {
+   background-color: #0b1729;
+   color:            #22374c;
+}
+td.control[id=is_alien] {
+   background-color: #690e0d;
+   color:            #ffffff;
+   font-size:        29px;
+}
+td.control[id=is_alien][touched] {
+   background-color: #0b1729;
+   color:            #690e0d;
+}
+td.control[id=is_alien][disabled] {
+   background-color: #0b1729;
+   color:            #22374c;
+}
+td.control[id=check_member] { font-size: 29px; }
+td.control[id=menu]         { font-size: 29px; }
+td.control[id=schedule]     { font-size: 29px; }
+td.control[id=howto]        { font-size: 29px; }
+td.control[id=user]         { font-size: 22px; text-align: left; padding-left: 5px; }
+
+/* righthand sales slip elements */
+td.slip_amount {
+   background-color: #9ba8bf;
+   font-size:        18px;
+   text-align:       right;
+}
+td.slip_desc {
+   background-color: #9ba8bf;
+   font-size:        18px;
+   text-align:       left;
+}
+td.slip_desc[member] {
+   background-color: #375f2a;
+   color:            #ffffff;
+   font-size:        18px;
+   text-align:       left;
+}
+td.slip_desc[alien] {
+   background-color: #690e0d;
+   color:            #ffffff;
+   font-size:        18px;
+   text-align:       left;
+}
+td.slip_value {
+   background-color: #9ba8bf;
+   font-size:        18px;
+   text-align:       right;
+}
+td.slip_total {
+   background-color: #9ba8bf;
+   font-size:        20px;
+   text-align:       right;
+   font-weight:      bold;
+}
+td.slip_given {
+   background-color: #ff9900;
+   font-size:        18px;
+   text-align:       right;
+}
+td.slip_change {
+   background-color: #9ba8bf;
+   font-size:        18px;
+   text-align:       right;
+   font-weight:      bold;
+}
+td.slip_amount[clickable] {
+   background-color: #ff9900;
+}
+td.slip_amount[disabled] {
+   background-color: #0b1729;
+   color:            #0b1729;
+}
+td.slip_amount[touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+td.slip_amount[selected] {
+   background-color: #46b6ee;
+}
+td.slip_desc[selected] {
+   background-color: #46b6ee;
+}
+td.slip_amount[touched][selected] {
+   background-color: #46b6ee;
+   color:            #000000;
+}
+td.slip_desc[disabled] {
+   background-color: #0b1729;
+   color:            #0b1729;
+}
+td.slip_desc[selected] {
+   background-color: #46b6ee;
+   color:            #0b1729;
+}
+td.slip_desc[touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+td.slip_desc[touched][selected] {
+   background-color: #46b6ee;
+   color:            #000000;
+}
+td.slip_value[disabled] {
+   background-color: #0b1729;
+   color:            #0b1729;
+}
+td.slip_value[touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+td.slip_total[disabled] {
+   background-color: #0b1729;
+   color:            #0b1729;
+}
+td.slip_total[touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+td.slip_given[disabled] {
+   background-color: #0b1729;
+   color:            #0b1729;
+}
+td.slip_given[touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+td.slip_change[disabled] {
+   background-color: #0b1729;
+   color:            #0b1729;
+}
+td.slip_change[touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+/* righthand number pad */
+td.numbers {
+   background-color: #ff9900;
+   font-size:        48px;
+   font-weight:      bold;
+}
+td.numbers[id=number_ok] {
+   background-color: #375f2a;
+   color:            #ffffff;
+}
+td.numbers[disabled] {
+   background-color: #0b1729;
+   color:            #22374c;
+}
+td.numbers[touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+td.numbers[id=number_ok][disabled] {
+   background-color: #0b1729;
+   color:            #22374c;
+}
+td.numbers[id=number_ok][touched] {
+   background-color: #0b1729;
+   color:            #375f2a;
+}
+
+/* bottom text fields */
+td.bottom {
+   color:            #ffffff;
+   vertical-align:   bottom;
+   text-align:       left;
+   font-size:        16px;
+}
+
+/* bottom line copyright notice */
+td.copyright {
+   color:            #aaaaaa;
+   vertical-align:   bottom;
+   font-size:        12px;
+   font-weight:      bold;
+}
+
+/* about screen */
+td.about { color: #ffffff; }
+td.about[id=about_font] { font-size: 14px; }
+td.about[id=about_logo] { padding: 0px; }
+
+/* initial screen - allow for gamma correction */
+td.gamma_a { background-color: #ffffff; font-size: 12px; font-weight: bold; }
+td.gamma_b { background-color: #ff9900; font-size: 12px; font-weight: bold; }
+td.gamma_c { background-color: #690e0d; font-size: 12px; font-weight: bold; }
+td.gamma_d { background-color: #375f2a; font-size: 12px; font-weight: bold; }
+td.gamma_e { background-color: #0b1729; font-size: 12px; font-weight: bold; }
+td.gamma_f { background-color: #0c1c2a; font-size: 12px; font-weight: bold; }
+td.gamma_g { background-color: #63738f; font-size: 12px; font-weight: bold; }
+td.gamma_h { background-color: #9ba8bf; font-size: 12px; font-weight: bold; }
+td.gamma_i { background-color: #46b6ee; font-size: 12px; font-weight: bold; }
+td.gamma_j { background-color: #22374c; font-size: 12px; font-weight: bold; }
+td.gamma_k { background-color: #555555; font-size: 12px; font-weight: bold; }
+td.gamma_l { background-color: #aaaaaa; font-size: 12px; font-weight: bold; }
+td.gamma_m { background-color: #000000; font-size: 12px; font-weight: bold; }
+.gamma_1_a { color: #ffffff; }
+.gamma_1_b { color: #ff9900; }
+.gamma_1_c { color: #690e0d; }
+.gamma_1_d { color: #375f2a; }
+.gamma_1_e { color: #0b1729; }
+.gamma_1_f { color: #0c1c2a; }
+.gamma_2_a { color: #63738f; }
+.gamma_2_b { color: #9ba8bf; }
+.gamma_2_c { color: #46b6ee; }
+.gamma_2_d { color: #22374c; }
+.gamma_2_e { color: #555555; }
+.gamma_2_f { color: #aaaaaa; }
+
+/* sales screen */
+td.sales {
+   background-color: #ff9900;
+   font-size:        20px;
+   font-weight:      bold;
+}
+td.sales[disabled] {
+   background-color: #0c1c2a;
+   color:            #0c1c2a;
+}
+td.sales[touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+td.sales[selected] {
+   background-color: #9ba8bf;
+   color:            #000000;
+}
+td.sales[selected][touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+span[member] {
+   background-color: #375f2a;
+   color:            #ffffff;
+}
+span[alien] {
+   background-color: #690e0d;
+   color:            #ffffff;
+}
+
+
+/* member screen */
+td.member_picture {
+   background-color: #63738f;
+}
+td.member_username {
+   background-color: #63738f;
+   font-size:        16px;
+   text-align:       left;
+   vertical-align:   bottom;
+}
+td.member_realname {
+   background-color: #63738f;
+   font-size:        16px;
+   text-align:       left;
+   vertical-align:   top;
+}
+td.member_status {
+   background-color: #63738f;
+   font-size:        20px;
+   font-weight:      bold;
+   text-align:       center;
+   vertical-align:   middle;
+}
+td.member_search {
+   background-color: #63738f;
+   font-size:        20px;
+   font-weight:      bold;
+   text-align:       center;
+   vertical-align:   middle;
+}
+td.member_searchname {
+   background-color: #46b6ee;
+   font-size:        20px;
+   font-weight:      bold;
+   text-align:       left;
+   vertical-align:   middle;
+   padding-left:     10px;
+}
+
+
+/* login screen */
+td.login_picture {
+   background-color: #63738f;
+}
+td.login_username {
+   background-color: #63738f;
+   font-size:        16px;
+   text-align:       left;
+   vertical-align:   bottom;
+}
+td.login_realname {
+   background-color: #63738f;
+   font-size:        16px;
+   text-align:       left;
+   vertical-align:   top;
+}
+td.login_status {
+   background-color: #63738f;
+   font-size:        20px;
+   font-weight:      bold;
+   text-align:       center;
+   vertical-align:   middle;
+}
+td.login_search {
+   background-color: #63738f;
+   font-size:        20px;
+   font-weight:      bold;
+   text-align:       center;
+   vertical-align:   middle;
+}
+td.login_searchname {
+   background-color: #46b6ee;
+   font-size:        20px;
+   font-weight:      bold;
+   text-align:       left;
+   vertical-align:   middle;
+   padding-left:     10px;
+}
+
+/* member screen keyboard */
+td.keyboard {
+   background-color: #ff9900;
+   font-size:        32px;
+   font-weight:      bold;
+}
+td.keyboard[disabled] {
+   background-color: #0b1729;
+   color:            #22374c;
+}
+td.keyboard[touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+
+/* cash */
+td.cash_label  { background-color: #ff9900; text-align: right; }
+td.cash_amount { background-color: #ff9900; text-align: right; }
+td.cash_button { background-color: #ff9900; }
+td.cash_sum    { background-color: #ff9900; text-align: right; }
+
+/* menu */
+td.menu        { background-color: #ff9900; font-size: 24px; }
+td.menu[disabled] {
+   background-color: #0c1c2a;
+   color:            #0c1c2a;
+}
+td.menu[touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+td.menu[selected] {
+   background-color: #375f2a;
+   color:            #ff9900;
+}
+td.menu[selected][touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+/* schedule */
+td.schedule    { color: #ffffff; font-size: 10px; }
