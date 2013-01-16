@@ -35,15 +35,16 @@
 
 /* set common parameters */
 body {
-	-moz-user-select: none;
-	background-color: #000000;
-	color:            #ffffff;
-	margin:           0px;
-	padding-top:      5px;
-	padding-left:     5px;
-	font-family:      'inconsolata';
-	cursor:           crosshair;
-	overflow:         hidden;
+  -moz-user-select: none;
+  background-color: #000000;
+  color:            #ffffff;
+  margin:           0px;
+  padding-top:      5px;
+  padding-left:     5px;
+  font-family:      'inconsolata';
+  line-height:      1;
+  cursor:           crosshair;
+  overflow:         hidden;
 }
 
 /* common formatting */
@@ -499,22 +500,48 @@ header {
   position: absolute;
   top: 5px;
   left: 5px;
+  font-size: 32px;
 }
+
 aside {
   background-color: #666;
-  height: 689px;
   width: 351px;
   position: absolute;
   left: 1010px;
-  top: 5px;
 }
-#datetime {
+
+aside#datetime {
+  height: 32px;
+  top: 5px;
   text-align: center;
-  font-size: 18px;
+  font-size: 27px;
+}
+
+aside#list {
+  height: 232px;
+  top: 42px;
+  text-align: center;
+  font-size: 26px;
+}
+
+aside#pad {
+  height: 326px;
+  top: 279px;
+  background-color: #666;
+  text-align: center;
+  font-size: 26px;
+}
+
+aside#enter {
+  height: 80px;
+  top: 610px;
+  background-color: #666;
+  text-align: center;
+  font-size: 26px;
 }
 
 footer {
-  background-color: #030303;
+  background-color: #666;
   width: 1356px;
   position: absolute;
   left: 5px;
@@ -531,7 +558,7 @@ footer#log {
 footer#copyright {
   height:           14px;
   top:              748px;
-  color:            #666;
+  color:            #aaa;
   vertical-align:   bottom;
   text-align:       center;
   font-size:        12px;
