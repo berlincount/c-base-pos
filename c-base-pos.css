@@ -486,19 +486,102 @@ td.menu[selected][touched] {
 /* schedule */
 td.schedule    { color: #ffffff; font-size: 10px; }
 
+/*
+ 1366x768
+ - 5+840+5+511+5
+ - 5+32+x+32+5
+*/
+
 header {
-	background-color: #666;
-	height: 32px;
-	width: 1356px;
-	position: fixed;
-	top: 5px;
-	left: 5px;
+  background-color: #666;
+  height: 32px;
+  width: 1000px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
 }
+aside {
+  background-color: #666;
+  height: 689px;
+  width: 351px;
+  position: absolute;
+  left: 1010px;
+  top: 5px;
+}
+#datetime {
+  text-align: center;
+  font-size: 18px;
+}
+
 footer {
-	background-color: #666;
-	height: 32px;
-	width: 1356px;
-	position: fixed;
-	left: 5px;
-	bottom: 5px;
+  background-color: #030303;
+  width: 1356px;
+  position: absolute;
+  left: 5px;
+}
+footer#log {
+  height:           50px;
+  top:              696px;
+  color:            #fff;
+  vertical-align:   bottom;
+  text-align:       left;
+  font-size:        16px;
+}
+
+footer#copyright {
+  height:           14px;
+  top:              748px;
+  color:            #666;
+  vertical-align:   bottom;
+  text-align:       center;
+  font-size:        12px;
+  //font-weight:      bold;
+}
+#l0 {
+  position: absolute;
+  background-color: #600;
+  width: 1350px;
+  height: 1px;
+  left: 0px;
+  bottom: 0px;
+}
+#l1 {
+  position: absolute;
+  background-color: #600;
+  width: 1350px;
+  height: 1px;
+  left: 1px;
+  bottom: 1px;
+}
+#l2 {
+  position: absolute;
+  background-color: #600;
+  width: 1350px;
+  height: 1px;
+  left: 2px;
+  bottom: 2px;
+}
+#l3 {
+  position: absolute;
+  background-color: #600;
+  width: 1350px;
+  height: 1px;
+  left: 3px;
+  bottom: 3px;
+}
+#l4 {
+  position: absolute;
+  background-color: #600;
+  width: 1350px;
+  height: 1px;
+  left: 4px;
+  bottom: 4px;
+}
+#l5 {
+  position: absolute;
+  background-color: #600;
+  width: 1350px;
+  height: 1px;
+  left: 5px;
+  bottom: 5px;
 }

@@ -1,0 +1,19 @@
+{ 
+  "main": "c-base-pos.html",
+  "name": "c-base-pos",
+  "description": "c-base e.V. PoS node-webkit App",
+  "version": "0.1",
+  "user-agent": "c-base-pos/0.1",
+  "keywords": [ "c-base", "pos", "node-webkit" ],
+  "window": {
+    "toolbar": false,
+    "width": 1366,
+    "height": 768,
+    "position": "null",
+    "resizable": false
+  },
+  "nodejs": false,
+  "webkit": {
+    "plugin": false
+  }
+}
