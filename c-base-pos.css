@@ -533,13 +533,242 @@ aside#list {
   text-align: center;
   font-size: 26px;
 }
+div.list_amt {
+  display: table;
+  width: 48px;
+  height: 32px;
+  position: absolute;
+}
+div.list_txt {
+  display: table;
+  width: 204px;
+  height: 32px;
+  position: absolute;
+}
+div.list_sum {
+  display: table;
+  width: 72px;
+  height: 32px;
+  position: absolute;
+}
+span.list_amt {
+  background-color: #888;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: right;
+}
+span.list_txt {
+  background-color: #888;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+}
+span.list_sum {
+  background-color: #888;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: right;
+}
+div#list_amt_0 {
+  top: 0px;
+  left: 0px;
+  text-align: right;
+}
+div#list_txt_0 {
+  top: 0px;
+  left: 54px;
+  text-align: left;
+}
+div#list_sum_0 {
+  top: 0px;
+  left: 260px;
+  text-align: right;
+}
+div#list_amt_1 {
+  top: 34px;
+  left: 0px;
+  text-align: right;
+}
+div#list_txt_1 {
+  top: 34px;
+  left: 54px;
+  text-align: left;
+}
+div#list_sum_1 {
+  top: 34px;
+  left: 260px;
+  text-align: right;
+}
+div#list_amt_2 {
+  top: 68px;
+  left: 0px;
+  text-align: right;
+}
+div#list_txt_2 {
+  top: 68px;
+  left: 54px;
+  text-align: left;
+}
+div#list_sum_2 {
+  top: 68px;
+  left: 260px;
+  text-align: right;
+}
+div#list_amt_3 {
+  top: 72px;
+  left: 0px;
+  text-align: right;
+}
+div#list_txt_3 {
+  top: 72px;
+  left: 54px;
+  text-align: left;
+}
+div#list_sum_3 {
+  top: 72px;
+  left: 260px;
+  text-align: right;
+}
+div#list_amt_4 {
+  top: 106px;
+  left: 0px;
+  text-align: right;
+}
+div#list_txt_4 {
+  top: 106px;
+  left: 54px;
+  text-align: left;
+}
+div#list_sum_4 {
+  top: 106px;
+  left: 260px;
+  text-align: right;
+}
+div#list_amt_5 {
+  top: 140px;
+  left: 0px;
+  text-align: right;
+}
+div#list_txt_5 {
+  top: 140px;
+  left: 54px;
+  text-align: left;
+}
+div#list_sum_5 {
+  top: 140px;
+  left: 260px;
+  text-align: right;
+}
+div#list_txt_sum {
+  top: 174px;
+  left: 0px;
+  width: 181px;
+  height: 58px;
+  font-size: 42px;
+}
+div#list_sum_sum {
+  top: 174px;
+  left: 183px;
+  text-align: right;
+  width: 168px;
+  height: 58px;
+  font-size: 42px;
+}
+span#listentry_txt_sum {
+  text-align: right;
+}
 
 aside#keypad {
   height: 411px;
   top: 279px;
   background-color: #666;
   text-align: center;
-  font-size: 26px;
+  font-size: 48px;
+}
+div.keypad {
+  display: table;
+  width: 85px;
+  height: 80px;
+  position: absolute;
+}
+span.key {
+  background-color: #888;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+div#keypad_alien {
+  top: 0px;
+  left: 0px;
+  height: 121px;
+  font-size: 28px;
+}
+div#keypad_query {
+  top: 123px;
+  left: 0px;
+}
+div#keypad_member {
+  top: 205px;
+  left: 0px;
+  height: 121px;
+  font-size: 28px;
+}
+div#keypad_7 {
+  top: 0px;
+  left: 90px;
+}
+div#keypad_8 {
+  top: 0px;
+  left: 178px;
+}
+div#keypad_9 {
+  top: 0px;
+  left: 266px;
+}
+div#keypad_4 {
+  top: 82px;
+  left: 90px;
+}
+div#keypad_5 {
+  top: 82px;
+  left: 178px;
+}
+div#keypad_6 {
+  top: 82px;
+  left: 266px;
+}
+div#keypad_3 {
+  top: 164px;
+  left: 90px;
+}
+div#keypad_2 {
+  top: 164px;
+  left: 178px;
+}
+div#keypad_1 {
+  top: 164px;
+  left: 266px;
+}
+div#keypad_comma {
+  top: 246px;
+  left: 90px;
+}
+div#keypad_0 {
+  top: 246px;
+  left: 178px;
+}
+div#keypad_ok {
+  top: 246px;
+  left: 266px;
+}
+div#keypad_x {
+  top: 331px;
+  left: 0px;
+}
+div#keypad_enter {
+  top: 331px;
+  left: 90px;
+  width: 261px;
 }
 
 footer {
