@@ -503,6 +503,16 @@ header {
   font-size: 32px;
 }
 
+section {
+  background-color: #666;
+  height: 648px;
+  width: 1000px;
+  position: absolute;
+  top: 42px;
+  left: 5px;
+  font-size: 32px;
+}
+
 aside {
   background-color: #666;
   width: 351px;
@@ -524,17 +534,9 @@ aside#list {
   font-size: 26px;
 }
 
-aside#pad {
-  height: 326px;
+aside#keypad {
+  height: 411px;
   top: 279px;
-  background-color: #666;
-  text-align: center;
-  font-size: 26px;
-}
-
-aside#enter {
-  height: 80px;
-  top: 610px;
   background-color: #666;
   text-align: center;
   font-size: 26px;
