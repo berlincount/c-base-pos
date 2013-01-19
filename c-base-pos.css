@@ -505,7 +505,7 @@ header {
 
 section {
   background-color: #666;
-  height: 648px;
+  height: 549px;
   width: 1000px;
   position: absolute;
   top: 42px;
@@ -528,7 +528,7 @@ aside#datetime {
 }
 
 aside#list {
-  height: 232px;
+  height: 303px;
   top: 42px;
   text-align: center;
   font-size: 26px;
@@ -659,19 +659,49 @@ div#list_sum_5 {
   left: 260px;
   text-align: right;
 }
-div#list_txt_sum {
+div#list_amt_6 {
   top: 174px;
   left: 0px;
+  text-align: right;
+}
+div#list_txt_6 {
+  top: 174px;
+  left: 54px;
+  text-align: left;
+}
+div#list_sum_6 {
+  top: 174px;
+  left: 260px;
+  text-align: right;
+}
+div#list_amt_7 {
+  top: 208px;
+  left: 0px;
+  text-align: right;
+}
+div#list_txt_7 {
+  top: 208px;
+  left: 54px;
+  text-align: left;
+}
+div#list_sum_7 {
+  top: 208px;
+  left: 260px;
+  text-align: right;
+}
+div#list_txt_sum {
+  top: 242px;
+  left: 0px;
   width: 175px;
-  height: 58px;
+  height: 61px;
   font-size: 42px;
 }
 div#list_sum_sum {
-  top: 174px;
+  top: 242px;
   left: 178px;
   text-align: right;
-  width: 174px;
-  height: 58px;
+  width: 173px;
+  height: 61px;
   font-size: 42px;
 }
 span#listentry_txt_sum {
@@ -680,7 +710,7 @@ span#listentry_txt_sum {
 
 aside#keypad {
   height: 411px;
-  top: 279px;
+  top: 350px;
   background-color: #666;
   text-align: center;
   font-size: 48px;
@@ -704,13 +734,13 @@ div#keypad_alien {
   font-size: 28px;
 }
 div#keypad_query {
-  top: 123px;
+  top: 246px;
   left: 0px;
 }
 div#keypad_member {
-  top: 205px;
+  top: 123px;
   left: 0px;
-  height: 121px;
+  height: 118px;
   font-size: 28px;
 }
 div#keypad_7 {
@@ -773,22 +803,28 @@ div#keypad_enter {
 
 footer {
   background-color: #666;
-  width: 1356px;
+  width: 1000px;
   position: absolute;
   left: 5px;
 }
+
+footer#menu {
+  top:              596px;
+  height:           80px;
+}
+
 footer#log {
-  height:           50px;
-  top:              696px;
+  height:           64px;
+  top:              681px;
   color:            #fff;
   vertical-align:   bottom;
   text-align:       left;
-  font-size:        16px;
+  font-size:        20px;
 }
 
 footer#copyright {
   height:           14px;
-  top:              748px;
+  top:              747px;
   color:            #aaa;
   vertical-align:   bottom;
   text-align:       center;
