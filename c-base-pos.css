@@ -692,20 +692,23 @@ div#list_sum_7 {
 div#list_txt_sum {
   top: 242px;
   left: 0px;
-  width: 175px;
+  width: 133px;
   height: 62px;
   font-size: 42px;
 }
 div#list_sum_sum {
   top: 242px;
-  left: 178px;
+  left: 136px;
   text-align: right;
-  width: 173px;
+  width: 215px;
   height: 62px;
   font-size: 42px;
 }
 span#listentry_txt_sum {
   text-align: right;
+}
+span#listentry_sum_sum {
+   font-weight: bold;
 }
 
 div.pad {
@@ -857,6 +860,7 @@ aside#keypad {
   background-color: #666;
   text-align: center;
   font-size: 48px;
+  font-weight: bold;
 }
 div.keypad {
   display: table;
@@ -884,7 +888,7 @@ div#keypad_member {
   top: 123px;
   left: 0px;
   height: 118px;
-  font-size: 28px;
+  font-size: 26px;
 }
 div#keypad_7 {
   top: 0px;
