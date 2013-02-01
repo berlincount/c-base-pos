@@ -951,10 +951,47 @@ footer {
   left: 5px;
 }
 
-footer#menu {
+footer#menubar {
   top:              596px;
   height:           80px;
+  font-size: 32px;
 }
+div.menubar {
+  display: table;
+  width: 196px;
+  height: 80px;
+  position: absolute;
+}
+span.menubar {
+  background-color: #888;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+div#login {
+  top: 0px;
+  left: 0px;
+  width: 397px;
+}
+span#login_txt {
+  text-align: left;
+}
+div#menu {
+  top: 0px;
+  left: 402px;
+  text-align: center;
+}
+div#schedule {
+  top: 0px;
+  left: 603px;
+  text-align: center;
+}
+div#howto {
+  top: 0px;
+  left: 804px;
+  text-align: center;
+}
+
 
 footer#log {
   height:           64px;
