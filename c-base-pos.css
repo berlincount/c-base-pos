@@ -1,10 +1,8 @@
 /*
- Copyright ©2008 flatline IT services / Andreas Kotes <count@flatline.de>
+ Copyright ©2013 Andreas Kotes <count@flatline.de>
  Alle Rechte vorbehalten / All rights reserved.
- Lizensiert 2008-2011 an den c-base e.V.
- Licensed 2008-2011 to the c-base e.V.
-
- !!! DO NOT MODIFY !!!
+ Lizensiert 2013 an den c-base e.V.
+ Licensed 2013 to the c-base e.V.
 */
 /*
  c-base colors:
@@ -46,101 +44,6 @@ body {
   cursor:           crosshair;
   overflow:         hidden;
 }
-
-/* common formatting */
-table {
-   background-color: #000000;
-   margin:           0px;
-   padding-top:      0px;
-   padding-left:     0px;
-}
-
-td {
-   color:            #000000;
-   text-align:       center;
-}
-/* debugging */
-td.debug {
-   color:            #000000;
-   text-align:       left;
-   font-size:        9px;
-}
-/* date/time */
-td.datetime {
-   color:            #ffffff;
-   font-size:        18px;
-}
-/* righthand control elements */
-td.control {
-   background-color: #ff9900;
-   font-size:        14px;
-   font-weight:      bold;
-}
-td.control[disabled] {
-   background-color: #0b1729;
-   color:            #22374c;
-}
-td.control[touched] {
-   background-color: #0b1729;
-   color:            #ff9900;
-}
-td.control[id=esc] {
-   background-color: #690e0d;
-   color:            #ffffff;
-   font-size:        48px;
-}
-td.control[id=esc][disabled] {
-   background-color: #0b1729;
-   color:            #22374c;
-}
-td.control[id=esc][touched] {
-   background-color: #0b1729;
-   color:            #690e0d;
-}
-td.control[id=book] {
-   background-color: #375f2a;
-   color:            #ffffff;
-   font-size:        48px;
-}
-td.control[id=book][disabled] {
-   background-color: #0b1729;
-   color:            #22374c;
-}
-td.control[id=book][touched] {
-   background-color: #0b1729;
-   color:            #375f2a;
-}
-td.control[id=is_member] {
-   background-color: #375f2a;
-   color:            #ffffff;
-   font-size:        29px;
-}
-td.control[id=is_member][touched] {
-   background-color: #0b1729;
-   color:            #375f2a;
-}
-td.control[id=is_member][disabled] {
-   background-color: #0b1729;
-   color:            #22374c;
-}
-td.control[id=is_alien] {
-   background-color: #690e0d;
-   color:            #ffffff;
-   font-size:        29px;
-}
-td.control[id=is_alien][touched] {
-   background-color: #0b1729;
-   color:            #690e0d;
-}
-td.control[id=is_alien][disabled] {
-   background-color: #0b1729;
-   color:            #22374c;
-}
-td.control[id=check_member] { font-size: 29px; }
-td.control[id=menu]         { font-size: 29px; }
-td.control[id=schedule]     { font-size: 29px; }
-td.control[id=howto]        { font-size: 29px; }
-td.control[id=user]         { font-size: 22px; text-align: left; padding-left: 5px; }
 
 /* righthand sales slip elements */
 td.slip_amount {
@@ -494,7 +397,7 @@ td.schedule    { color: #ffffff; font-size: 10px; }
 */
 
 header {
-  background-color: #666;
+  background-color: #000;
   height: 32px;
   width: 1000px;
   position: absolute;
@@ -504,7 +407,7 @@ header {
 }
 
 section {
-  background-color: #666;
+  background-color: #000;
   height: 550px;
   width: 1000px;
   position: absolute;
@@ -512,12 +415,36 @@ section {
   left: 5px;
   font-size: 32px;
 }
+section#sales {
+  display: inline
+}
 
 aside {
-  background-color: #666;
+  background-color: #000;
   width: 351px;
   position: absolute;
   left: 1010px;
+}
+
+div {
+   background-color: #ff9900;
+   color:            #000000;
+}
+div[disabled] {
+   background-color: #0c1c2a;
+   color:            #22374c;
+}
+div[touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
+}
+div[selected] {
+   background-color: #9ba8bf;
+   color:            #000000;
+}
+div[selected][touched] {
+   background-color: #0b1729;
+   color:            #ff9900;
 }
 
 aside#datetime {
@@ -552,19 +479,16 @@ div.list_sum {
   position: absolute;
 }
 span.list_amt {
-  background-color: #888;
   display: table-cell;
   vertical-align: middle;
   text-align: right;
 }
 span.list_txt {
-  background-color: #888;
   display: table-cell;
   vertical-align: middle;
   text-align: left;
 }
 span.list_sum {
-  background-color: #888;
   display: table-cell;
   vertical-align: middle;
   text-align: right;
@@ -711,144 +635,144 @@ span#listentry_sum_sum {
    font-weight: bold;
 }
 
-div.pad {
+div.sales {
   display: table;
   width: 196px;
   height: 106px;
   position: absolute;
+  font-weight: bold;
 }
-span.pad {
-  background-color: #888;
+span.sales {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
 }
-div#pad_1x1 {
+div#sales_1x1 {
   top: 0px;
   left: 0px;
   text-align: center;
 }
-div#pad_2x1 {
+div#sales_2x1 {
   top: 0px;
   left: 201px;
   text-align: center;
 }
-div#pad_3x1 {
+div#sales_3x1 {
   top: 0px;
   left: 402px;
   text-align: center;
 }
-div#pad_4x1 {
+div#sales_4x1 {
   top: 0px;
   left: 603px;
   text-align: center;
 }
-div#pad_5x1 {
+div#sales_5x1 {
   top: 0px;
   left: 804px;
   text-align: center;
 }
-div#pad_2x1 {
+div#sales_2x1 {
   top: 0px;
   left: 201px;
   text-align: center;
 }
-div#pad_1x2 {
+div#sales_1x2 {
   top: 111px;
   left: 0px;
   text-align: center;
 }
-div#pad_2x2 {
+div#sales_2x2 {
   top: 111px;
   left: 201px;
   text-align: center;
 }
-div#pad_3x2 {
+div#sales_3x2 {
   top: 111px;
   left: 402px;
   text-align: center;
 }
-div#pad_4x2 {
+div#sales_4x2 {
   top: 111px;
   left: 603px;
   text-align: center;
 }
-div#pad_5x2 {
+div#sales_5x2 {
   top: 111px;
   left: 804px;
   text-align: center;
 }
-div#pad_1x3 {
+div#sales_1x3 {
   top: 222px;
   left: 0px;
   text-align: center;
 }
-div#pad_2x3 {
+div#sales_2x3 {
   top: 222px;
   left: 201px;
   text-align: center;
 }
-div#pad_3x3 {
+div#sales_3x3 {
   top: 222px;
   left: 402px;
   text-align: center;
 }
-div#pad_4x3 {
+div#sales_4x3 {
   top: 222px;
   left: 603px;
   text-align: center;
 }
-div#pad_5x3 {
+div#sales_5x3 {
   top: 222px;
   left: 804px;
   text-align: center;
 }
-div#pad_1x4 {
+div#sales_1x4 {
   top: 333px;
   left: 0px;
   text-align: center;
 }
-div#pad_2x4 {
+div#sales_2x4 {
   top: 333px;
   left: 201px;
   text-align: center;
 }
-div#pad_3x4 {
+div#sales_3x4 {
   top: 333px;
   left: 402px;
   text-align: center;
 }
-div#pad_4x4 {
+div#sales_4x4 {
   top: 333px;
   left: 603px;
   text-align: center;
 }
-div#pad_5x4 {
+div#sales_5x4 {
   top: 333px;
   left: 804px;
   text-align: center;
 }
-div#pad_1x5 {
+div#sales_1x5 {
   top: 444px;
   left: 0px;
   text-align: center;
 }
-div#pad_2x5 {
+div#sales_2x5 {
   top: 444px;
   left: 201px;
   text-align: center;
 }
-div#pad_3x5 {
+div#sales_3x5 {
   top: 444px;
   left: 402px;
   text-align: center;
 }
-div#pad_4x5 {
+div#sales_4x5 {
   top: 444px;
   left: 603px;
   text-align: center;
 }
-div#pad_5x5 {
+div#sales_5x5 {
   top: 444px;
   left: 804px;
   text-align: center;
@@ -857,7 +781,7 @@ div#pad_5x5 {
 aside#keypad {
   height: 411px;
   top: 350px;
-  background-color: #666;
+  background-color: #000;
   text-align: center;
   font-size: 48px;
   font-weight: bold;
@@ -869,7 +793,6 @@ div.keypad {
   position: absolute;
 }
 span.key {
-  background-color: #888;
   display: table-cell;
   vertical-align: middle;
   text-align: center;
@@ -879,17 +802,38 @@ div#keypad_alien {
   left: 0px;
   height: 121px;
   font-size: 28px;
+  background-color: #690e0d;
+  color:            #ffffff;
 }
-div#keypad_query {
-  top: 246px;
-  left: 0px;
+div#keypad_alien[disabled] {
+   background-color: #0b1729;
+   color:            #22374c;
+}
+div#keypad_alien[touched] {
+   background-color: #0b1729;
+   color:            #690e0d;
 }
 div#keypad_member {
   top: 123px;
   left: 0px;
   height: 118px;
   font-size: 26px;
+  background-color: #375f2a;
+  color:            #ffffff;
 }
+div#keypad_member[disabled] {
+  background-color: #0b1729;
+  color:            #22374c;
+}
+div#keypad_member[touched] {
+  background-color: #0b1729;
+  color:            #375f2a;
+}
+div#keypad_query {
+  top: 246px;
+  left: 0px;
+}
+
 div#keypad_7 {
   top: 0px;
   left: 90px;
@@ -941,15 +885,35 @@ div#keypad_ok {
 div#keypad_x {
   top: 331px;
   left: 0px;
+  background-color: #690e0d;
+  color:            #ffffff;
+}
+div#keypad_x[disabled] {
+  background-color: #0b1729;
+  color:            #22374c;
+}
+div#keypad_x[touched] {
+  background-color: #0b1729;
+  color:            #690e0d;
 }
 div#keypad_enter {
   top: 331px;
   left: 90px;
   width: 261px;
+  background-color: #375f2a;
+  color:            #ffffff;
+}
+div#keypad_enter[disabled] {
+  background-color: #0b1729;
+  color:            #22374c;
+}
+div#keypad_enter[touched] {
+  background-color: #0b1729;
+  color:            #375f2a;
 }
 
 footer {
-  background-color: #666;
+  background-color: #000;
   width: 1000px;
   position: absolute;
   left: 5px;
@@ -967,7 +931,6 @@ div.menubar {
   position: absolute;
 }
 span.menubar {
-  background-color: #888;
   display: table-cell;
   vertical-align: middle;
   text-align: center;
