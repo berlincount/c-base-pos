@@ -33,7 +33,6 @@
 
 /* set common parameters */
 body {
-  -moz-user-select: none;
   background-color: #000000;
   color:            #ffffff;
   margin:           0px;
@@ -43,6 +42,16 @@ body {
   line-height:      1;
   cursor:           crosshair;
   overflow:         hidden;
+}
+
+/* disable selecting */
+* {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 /* righthand sales slip elements */
@@ -415,9 +424,6 @@ section {
   left: 5px;
   font-size: 32px;
 }
-section#sales {
-  display: inline
-}
 
 aside {
   background-color: #000;
@@ -775,6 +781,309 @@ div#sales_4x5 {
 div#sales_5x5 {
   top: 444px;
   left: 804px;
+  text-align: center;
+}
+
+div.result {
+  display: table;
+  width: 320px;
+  height: 50px;
+  position: absolute;
+  font-weight: bold;
+}
+span.result {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+}
+img.result {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  margin: 5px 3px auto;
+}
+div#result_1x1 {
+  top: 0px;
+  left: 17px;
+  text-align: center;
+}
+div#result_2x1 {
+  top: 0px;
+  left: 339px;
+  text-align: center;
+}
+div#result_3x1 {
+  top: 0px;
+  left: 661px;
+  text-align: center;
+}
+div#result_1x2 {
+  top: 52px;
+  left: 17px;
+  text-align: center;
+}
+div#result_2x2 {
+  top: 52px;
+  left: 339px;
+  text-align: center;
+}
+div#result_3x2 {
+  top: 52px;
+  left: 661px;
+  text-align: center;
+}
+div#result_1x3 {
+  top: 104px;
+  left: 17px;
+  text-align: center;
+}
+div#result_2x3 {
+  top: 104px;
+  left: 339px;
+  text-align: center;
+}
+div#result_3x3 {
+  top: 104px;
+  left: 661px;
+  text-align: center;
+}
+
+div.entry {
+  display: table;
+  width: 320px;
+  height: 50px;
+  position: absolute;
+  font-weight: bold;
+}
+span.entry {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+div#entry {
+  top: 156px;
+  left: 339px;
+  text-align: center;
+}
+
+div.keyboard {
+  display: table;
+  width: 84px;
+  height: 84px;
+  position: absolute;
+  font-weight: bold;
+}
+span.keyboard {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+div#key_1 {
+  top: 208px;
+  left: 17px;
+  text-align: center;
+}
+div#key_2 {
+  top: 208px;
+  left: 103px;
+  text-align: center;
+}
+div#key_3 {
+  top: 208px;
+  left: 189px;
+  text-align: center;
+}
+div#key_4 {
+  top: 208px;
+  left: 275px;
+  text-align: center;
+}
+div#key_5 {
+  top: 208px;
+  left: 361px;
+  text-align: center;
+}
+div#key_6 {
+  top: 208px;
+  left: 447px;
+  text-align: center;
+}
+div#key_7 {
+  top: 208px;
+  left: 533px;
+  text-align: center;
+}
+div#key_8 {
+  top: 208px;
+  left: 619px;
+  text-align: center;
+}
+div#key_9 {
+  top: 208px;
+  left: 705px;
+  text-align: center;
+}
+div#key_0 {
+  top: 208px;
+  left: 791px;
+  text-align: center;
+}
+div#key_bs {
+  top: 208px;
+  left: 877px;
+  width: 106px;
+  text-align: center;
+}
+div#key_q {
+  top: 294px;
+  left: 59px;
+  text-align: center;
+}
+div#key_w {
+  top: 294px;
+  left: 145px;
+  text-align: center;
+}
+div#key_e {
+  top: 294px;
+  left: 231px;
+  text-align: center;
+}
+div#key_r {
+  top: 294px;
+  left: 317px;
+  text-align: center;
+}
+div#key_t {
+  top: 294px;
+  left: 403px;
+  text-align: center;
+}
+div#key_z {
+  top: 294px;
+  left: 489px;
+  text-align: center;
+}
+div#key_u {
+  top: 294px;
+  left: 575px;
+  text-align: center;
+}
+div#key_i {
+  top: 294px;
+  left: 661px;
+  text-align: center;
+}
+div#key_o {
+  top: 294px;
+  left: 747px;
+  text-align: center;
+}
+div#key_p {
+  top: 294px;
+  left: 833px;
+  text-align: center;
+}
+div#key_a {
+  top: 380px;
+  left: 103px;
+  text-align: center;
+}
+div#key_s {
+  top: 380px;
+  left: 189px;
+  text-align: center;
+}
+div#key_d {
+  top: 380px;
+  left: 275px;
+  text-align: center;
+}
+div#key_f {
+  top: 380px;
+  left: 361px;
+  text-align: center;
+}
+div#key_g {
+  top: 380px;
+  left: 447px;
+  text-align: center;
+}
+div#key_h {
+  top: 380px;
+  left: 533px;
+  text-align: center;
+}
+div#key_j {
+  top: 380px;
+  left: 619px;
+  text-align: center;
+}
+div#key_k {
+  top: 380px;
+  left: 705px;
+  text-align: center;
+}
+div#key_l {
+  top: 380px;
+  left: 791px;
+  text-align: center;
+}
+div#key_enter {
+  top: 380px;
+  left: 877px;
+  width: 106px;
+  text-align: center;
+}
+div#key_shift {
+  top: 466px;
+  left: 37px;
+  width: 106px;
+  text-align: center;
+}
+div#key_y {
+  top: 466px;
+  left: 145px;
+  text-align: center;
+}
+div#key_x {
+  top: 466px;
+  left: 231px;
+  text-align: center;
+}
+div#key_c {
+  top: 466px;
+  left: 317px;
+  text-align: center;
+}
+div#key_v {
+  top: 466px;
+  left: 403px;
+  text-align: center;
+}
+div#key_b {
+  top: 466px;
+  left: 489px;
+  text-align: center;
+}
+div#key_n {
+  top: 466px;
+  left: 575px;
+  text-align: center;
+}
+div#key_m {
+  top: 466px;
+  left: 661px;
+  text-align: center;
+}
+div#key_minus {
+  top: 466px;
+  left: 747px;
+  text-align: center;
+}
+div#key_underscore {
+  top: 466px;
+  left: 833px;
   text-align: center;
 }
 
