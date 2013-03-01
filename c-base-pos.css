@@ -88,6 +88,10 @@ aside {
   left: 1010px;
 }
 
+p.about {
+  font-size: 28px;
+}
+
 div {
    background-color: #ff9900;
    color:            #000000;
