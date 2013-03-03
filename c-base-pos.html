@@ -10,13 +10,13 @@
  <meta charset="utf-8">
  <link rel="stylesheet" type="text/css" href="c-base-pos.css">
  <script src="jquery.js"></script>
- <script src="c-base-pos.js"></script><script>$( document ).ready( runPoS );</script>
+ <script src="c-base-pos.js"></script><script>$(document).ready(posRun);</script>
 </head>
 
 <body>
 <header><img alt="c-base - Raumstation unter Berlin" src="c-base-header.gif"></header>
-<aside id=datetime>Zeit: 00.00.0000 00:00:00</aside>
-<aside id=list>
+<aside id=datetime class="permanent">Zeit: 00.00.0000 00:00:00</aside>
+<aside id=sales_side style="display: none">
 <div class="button list_amt" id=list_amt_0 disabled><span class=list_amt id=listentry_amt_0>123x</span></div><div class="button list_txt" id=list_txt_0 disabled><span class=list_txt id=listentry_txt_0>123456789012345</span></div><div class="button list_sum" id=list_sum_0 disabled><span class=list_sum id=listentry_sum_0>123,45€</span></div>
 <div class="button list_amt" id=list_amt_1 disabled><span class=list_amt id=listentry_amt_1>123x</span></div><div class="button list_txt" id=list_txt_1 disabled><span class=list_txt id=listentry_txt_1>123456789012345</span></div><div class="button list_sum" id=list_sum_1 disabled><span class=list_sum id=listentry_sum_1>123,45€</span></div>
 <div class="button list_amt" id=list_amt_2 disabled><span class=list_amt id=listentry_amt_2>123x</span></div><div class="button list_txt" id=list_txt_2 disabled><span class=list_txt id=listentry_txt_2>123456789012345</span></div><div class="button list_sum" id=list_sum_2 disabled><span class=list_sum id=listentry_sum_2>123,45€</span></div>
@@ -27,7 +27,7 @@
 <div class="button list_amt" id=list_amt_7 disabled><span class=list_amt id=listentry_amt_7>123x</span></div><div class="button list_txt" id=list_txt_7 disabled><span class=list_txt id=listentry_txt_7>123456789012345</span></div><div class="button list_sum" id=list_sum_7 disabled><span class=list_sum id=listentry_sum_7>123,45€</span></div>
 <div class="button receipt" id=receipt_btn disabled><span class=receipt id=receipt_txt>&#9113;</span></div><div class="button list_txt" id=list_txt_sum disabled><span class=list_txt id=listentry_txt_sum>Gesamt</span></div><div class="button list_sum" id=list_sum_sum disabled><span class=list_sum id=listentry_sum_sum>1234,56€</span></div>
 </aside>
-<aside id=keypad class=keypad>
+<aside id=keypad class="keypad permanent">
 <div class="button keypad" id=keypad_9 disabled><span class=key id=key_9>9</span></div>
 <div class="button keypad" id=keypad_8 disabled><span class=key id=keyd_8>8</span></div>
 <div class="button keypad" id=keypad_7 disabled><span class=key id=keypad_7>7</span></div>
@@ -46,7 +46,7 @@
 <div class="button keypad" id=keypad_x disabled><span class=key id=keypad_x>X</span></div>
 <div class="button keypad" id=keypad_enter disabled><span class=key id=keypad_enter>Buchen</span></div>
 </aside>
-<section id=sales style="display: none">
+<section id=sales_main style="display: none">
 <div class="button sales" id=sales_1x1 disabled><span class=sales id=sales_txt_1x2>123x / 123x<br/>12345678901<br/>123,45€</span></div>
 <div class="button sales" id=sales_2x1 disabled><span class=sales id=sales_txt_2x1>123x / 123x<br/>12345678901<br/>123,45€</span></div>
 <div class="button sales" id=sales_3x1 disabled><span class=sales id=sales_txt_3x1>123x / 123x<br/>12345678901<br/>123,45€</span></div>
@@ -73,7 +73,7 @@
 <div class="button sales" id=sales_4x5 disabled><span class=sales id=sales_txt_4x5>123x / 123x<br/>12345678901<br/>123,45€</span></div>
 <div class="button sales" id=sales_5x5 disabled><span class=sales id=sales_txt_5x5>123x / 123x<br/>12345678901<br/>123,45€</span></div>
 </section>
-<section id=search style="display: none">
+<section id=search_main style="display: none">
 <div class="button result" id=result_1x1 disabled><img width=40 height=40 class=result id=result_1x1_img src="80x80-none.png"><span class=result id=result_1x1_txt>123456789012345</span></div>
 <div class="button result" id=result_2x1 disabled><img width=40 height=40 class=result id=result_1x1_img src="80x80-none.png"><span class=result id=result_2x1_txt>123456789012345</span></div>
 <div class="button result" id=result_3x1 disabled><img width=40 height=40 class=result id=result_1x1_img src="80x80-none.png"><span class=result id=result_3x1_txt>123456789012345</span></div>
@@ -128,7 +128,7 @@
 <div class="button keyboard" id=key_minus disabled><span class=key id=key_minus_btn>-</span></div>
 <div class="button keyboard" id=key_underscore disabled><span class=key id=key_underscore_btn>_</span></div>
 </section>
-<section id=about>
+<section id=about_main>
 <center>
 <img src="c-base-sideview.jpg" width=665 height=240 alt="c-base">
 <p class="about">c-base e.V. PoS interface</p>
@@ -137,7 +137,7 @@
 <p class="about">Using the 'Inconsolata' font by Raph Levien<br/>http://www.levien.com/type/myfonts/inconsolata.html</p>
 </center>
 </section>
-<footer id=menubar>
+<footer id=menubar_main class="permanent">
 <div class="button menubar" id=login disabled><span class=menubar id=login_txt>Member: 123456789012345<br/>Beginn: 12:34</span></div>
 <div class="button menubar" id=menu disabled><span class=menubar id=menu_txt>Menü</span></div>
 <div class="button menubar" id=schedule disabled><span class=menubar id=schedule_txt>Schichtplan</span></div>
@@ -145,13 +145,5 @@
 </footer>
 <footer id=log>123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789<br/>123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789<br/>123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789</footer>
 <footer id=copyright>123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789</footer>
-<!-- dummy for measurements
-<div id=l5>5</div>
-<div id=l4>4</div>
-<div id=l3>3</div>
-<div id=l2>2</div>
-<div id=l1>1</div>
-<div id=l0>0</div>
--->
 </body>
 </html>

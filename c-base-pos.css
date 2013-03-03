@@ -128,7 +128,7 @@ aside#datetime {
   font-size: 27px;
 }
 
-aside#list {
+aside#sales_side {
   height: 304px;
   top: 41px;
   font-size: 26px;
@@ -796,7 +796,7 @@ footer {
   left: 5px;
 }
 
-footer#menubar {
+footer#menubar_main {
   top:              596px;
   height:           80px;
   font-size: 32px;
@@ -825,7 +825,6 @@ div#howto {
   top: 0px;
   left: 804px;
 }
-
 
 footer#log {
   height:           64px;

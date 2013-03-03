@@ -7,42 +7,71 @@
  * Date: 2013-03-01
  */
 
-function runPoS() {
+function posRun() {
   // define initial state
-  changeState('firstabout');
+  posChangeState('firstabout');
+  posUpdateClock();
+  posStartClock();
 }
 
-currentState = 'unknown';
-stateTimeout = false;
-function changeState(state) {
-  if (stateTimeout)
-    window.clearTimeout(stateTimeout);
+var posClock=null;
+function posStartClock() {
+  posClock=self.setInterval(function(){posUpdateClock()},1000);
+}
+
+function posUpdateClock() {
+  var d=new Date();
+  var date_str=('0'+d.getDate()).substr(-2,2)+'.'+('0'+(d.getMonth()+1)).substr(-2,2)+'.'+d.getFullYear();
+  var time_str=('0'+d.getHours()).substr(-2,2)+':'+('0'+d.getMinutes()).substr(-2,2)+':'+('0'+d.getSeconds()).substr(-2,2);
+  $('#datetime').text('Zeit: '+date_str+' '+time_str);
+}
+
+function posShowView(view) {
+  // disable all <section> and <aside> element
+  $('section').css('display', 'none');
+  $('aside').css('display', 'none');
+  // reenable permanent ones
+  $('aside').filter('.permanent').css('display', '');
+  // enable the view selected
+  $('#'+view+'_main').css('display', '');
+  $('#'+view+'_side').css('display', '');
+}
+
+function posEnableButtons(view) {
+  $('div').filter('.button').attr('disabled', true);
+  switch(view) {
+    case 'about':
+      $('#keypad_x').removeAttr('disabled');
+      break;
+    case 'sales':
+      $('div').filter('.keypad').removeAttr('disabled');
+      $('div').filter('.menubar').removeAttr('disabled');
+      $('div').filter('.sales').removeAttr('disabled');
+      $('div').filter('.list_amt').removeAttr('disabled');
+      $('div').filter('.list_txt').removeAttr('disabled');
+      $('div').filter('.list_sum').removeAttr('disabled');
+      $('div').filter('.receipt').removeAttr('disabled');
+  }
+}
+
+var posCurrentState = 'unknown';
+var posStateTimeout = false;
+function posChangeState(state) {
+  if (posStateTimeout)
+    window.clearTimeout(posStateTimeout);
   switch (state) {
     case 'firstabout':
-                  // switch to sales screen after 3 seconds
-                  window.setTimeout(function(){changeState('sales')}, 3000);
-    case 'about': // show only the 'about' section
-                  $('section').css('display', 'none');
-                  $('#about').css('display', '');
-
-                  // enable only the 'X' button in the keypad
-                  $('div').filter('.button').attr('disabled', true);
-                  $('#keypad_x').removeAttr('disabled');
-                  break;
-    case 'sales': // show only the 'sales' section
-                  $('section').css('display', 'none');
-                  $('#sales').css('display', '');
-
-                  // enable basically all visible buttons (only)
-                  $('div').filter('.button').attr('disabled', true);
-                  $('div').filter('.keypad').removeAttr('disabled');
-                  $('div').filter('.menubar').removeAttr('disabled');
-                  $('div').filter('.sales').removeAttr('disabled');
-                  $('div').filter('.list_amt').removeAttr('disabled');
-                  $('div').filter('.list_txt').removeAttr('disabled');
-                  $('div').filter('.list_sum').removeAttr('disabled');
-                  $('div').filter('.receipt').removeAttr('disabled');
-                  break;
+      // switch to sales screen after 3 seconds
+      window.setTimeout(function(){posChangeState('sales')}, 3000);
+    case 'about':
+      posShowView('about');
+      posEnableButtons('about');
+      break;
+    case 'sales':
+      posShowView('sales')
+      posEnableButtons('sales');
+      break;
   }
+  posCurrentState=state;
 }
 
