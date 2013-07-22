@@ -110,5 +110,10 @@ function posInitSerial() {
         "\x1b=\x02\x0c%scout of service.",
         posVersionString));
     });
+    process.on('SIGINT', function() {
+      serialPort.write(sprintf(
+        "\x1b=\x02\x0c%scout of service.",
+        posVersionString));
+    });
   });
 }
