@@ -10,9 +10,9 @@
 var posVersionString = "c-base-pos v0.8";
 
 if (require) {
-  // load dependencies
-  var sprintf = require("sprintf-js").sprintf;
   var SerialPort = require("serialport/serialport").SerialPort;
+} else {
+  var SerialPort = undefined;
 }
 
 function posRun() {
@@ -22,7 +22,9 @@ function posRun() {
   posChangeState('firstabout');
   posUpdateClock();
   posStartClock();
-  posInitSerial();
+  if (SerialPort) {
+    posInitSerial();
+  }
 }
 
 var posClock=null;
