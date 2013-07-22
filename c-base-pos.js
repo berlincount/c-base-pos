@@ -120,5 +120,10 @@ function posInitSerial() {
         "\x1b=\x02\x0c%s\n\rout of service.",
         posVersionString));
     });
+    process.on('SIGTERM', function() {
+      posSerialPort.write(sprintf(
+        "\x1b=\x02\x0c%s\n\rout of service.",
+        posVersionString));
+    });
   });
 }
