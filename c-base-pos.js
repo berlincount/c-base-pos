@@ -110,12 +110,12 @@ function posInitSerial() {
     }, (60-nextminute.getSeconds())*1000);
     process.on('exit', function() {
       posSerialPort.write(sprintf(
-        "\x1b=\x02\x0c%scout of service.",
+        "\x1b=\x02\x0c%s\nout of service.",
         posVersionString));
     });
     process.on('SIGINT', function() {
       posSerialPort.write(sprintf(
-        "\x1b=\x02\x0c%scout of service.",
+        "\x1b=\x02\x0c%s\nout of service.",
         posVersionString));
     });
   });
