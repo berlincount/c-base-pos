@@ -102,19 +102,19 @@ function posInitSerial() {
     posSerialAvailable = true;
     var nextminute = new Date((new Date).getTime()+60000);
     window.setTimeout(function () {
-        serialPort.write(sprintf(
+        posSerialPort.write(sprintf(
           "\x1b=\x02\x1fT%c%c%19s",
           nextminute.getHours(),
           nextminute.getMinutes(),
           posVersionString))
     }, (60-nextminute.getSeconds())*1000);
     process.on('exit', function() {
-      serialPort.write(sprintf(
+      posSerialPort.write(sprintf(
         "\x1b=\x02\x0c%scout of service.",
         posVersionString));
     });
     process.on('SIGINT', function() {
-      serialPort.write(sprintf(
+      posSerialPort.write(sprintf(
         "\x1b=\x02\x0c%scout of service.",
         posVersionString));
     });
