@@ -4,14 +4,20 @@
  * Copyright 2013 Andreas Kotes
  * All rights reserved (for now)
  *
- * Date: 2013-03-01
+ * Date: 2013-07-22
  */
 
+var posVersionString = "c-base-pos v0.8";
+
 function posRun() {
+  // load dependencies
+  var sprintf = require("sprintf-js").sprintf;
+
   // define initial state
   posChangeState('firstabout');
   posUpdateClock();
   posStartClock();
+  posInitSerial();
 }
 
 var posClock=null;
@@ -75,3 +81,30 @@ function posChangeState(state) {
   posCurrentState=state;
 }
 
+var posSerialAvailable = false;
+var posSerialPort;
+function posInitSerial() {
+  var SerialPort = require("serialport/serialport").SerialPort;
+  posSerialPort = new SerialPort("/dev/ttyUSB0", { baudrate: 19200 });
+  posSerialPort.on("open", function() {
+    console.log('serialPort enabled');
+    posSerialPort.on('data', function(data) {
+      console.log('serial received: '+data);
+    })
+    posSerialPort.write(sprintf("\x1B=\x02\x0c%19s",posVersionString))
+    posSerialAvailable = true;
+    var nextminute = new Date((new Date).getTime()+60000);
+    window.setTimeout(function () {
+        serialPort.write(sprintf(
+          "\x1B=\x02\x1fT%c%c%19s",
+          nextminute.getHours(),
+          nextminute.getMinutes(),
+          posVersionString))
+    }, (60-nextminute.getSeconds())*1000);
+    process.on('exit', function() {
+      serialPort.write(sprintf(
+        "\x1B=\x02\x0%scout of service.",
+        posVersionString));
+    });
+  });
+}
