@@ -12,6 +12,7 @@ var posVersionString = "c-base-pos v0.8";
 function posRun() {
   // load dependencies
   var sprintf = require("sprintf-js").sprintf;
+  var SerialPort = require("serialport/serialport").SerialPort;
 
   // define initial state
   posChangeState('firstabout');
@@ -84,7 +85,6 @@ function posChangeState(state) {
 var posSerialAvailable = false;
 var posSerialPort;
 function posInitSerial() {
-  var SerialPort = require("serialport/serialport").SerialPort;
   posSerialPort = new SerialPort("/dev/ttyUSB0", { baudrate: 19200 });
   posSerialPort.on("open", function() {
     console.log('serialPort enabled');
