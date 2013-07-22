@@ -10,6 +10,7 @@
 var posVersionString = "c-base-pos v0.8";
 
 function posRun() {
+  console.log(posVersionString);
   // load dependencies
   var sprintf = require("sprintf-js").sprintf;
   var SerialPort = require("serialport/serialport").SerialPort;
@@ -34,6 +35,7 @@ function posUpdateClock() {
 }
 
 function posShowView(view) {
+  console.log("posShowView: "+view)
   // disable all <section> and <aside> element
   $('section').css('display', 'none');
   $('aside').css('display', 'none');
@@ -45,6 +47,7 @@ function posShowView(view) {
 }
 
 function posEnableButtons(view) {
+  console.log("posEnableButtons: "+view)
   $('div').filter('.button').attr('disabled', true);
   switch(view) {
     case 'about':
@@ -64,6 +67,7 @@ function posEnableButtons(view) {
 var posCurrentState = 'unknown';
 var posStateTimeout = false;
 function posChangeState(state) {
+  console.log("posChangeState: "+state)
   if (posStateTimeout)
     window.clearTimeout(posStateTimeout);
   switch (state) {
