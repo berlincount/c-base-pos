@@ -9,7 +9,7 @@
 
 var posVersionString = "c-base-pos v0.8";
 
-if (require) {
+if (require !== undefined) {
   var SerialPort = require("serialport/serialport").SerialPort;
 } else {
   var SerialPort = undefined;
@@ -22,7 +22,7 @@ function posRun() {
   posChangeState('firstabout');
   posUpdateClock();
   posStartClock();
-  if (SerialPort) {
+  if (SerialPort !== undefined) {
     posInitSerial();
   }
 }
