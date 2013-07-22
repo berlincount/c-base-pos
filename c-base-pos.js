@@ -9,11 +9,14 @@
 
 var posVersionString = "c-base-pos v0.8";
 
-function posRun() {
-  console.log(posVersionString);
+if (require) {
   // load dependencies
   var sprintf = require("sprintf-js").sprintf;
   var SerialPort = require("serialport/serialport").SerialPort;
+}
+
+function posRun() {
+  console.log(posVersionString);
 
   // define initial state
   posChangeState('firstabout');
