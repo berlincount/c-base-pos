@@ -2,15 +2,15 @@
 
 ## Datenbank leeren ...
 echo \# Cleaning items ...
-for i in `seq 1 50`; do curl -S -s -X DELETE -H 'Content-type: application/json' http://hoschi:14339/api/v0/items/$i ; done
+for i in `seq 1 50`; do curl -S -s -X DELETE -H 'Content-type: application/json' http://localhost:14339/api/v0/items/$i ; done
 echo \# Cleaning prices ...
-for i in `seq 1 50`; do curl -S -s -X DELETE -H 'Content-type: application/json' http://hoschi:14339/api/v0/prices/$i ; done
+for i in `seq 1 50`; do curl -S -s -X DELETE -H 'Content-type: application/json' http://localhost:14339/api/v0/prices/$i ; done
 echo \# Cleaning tariffs ...
-for i in `seq 1 50`; do curl -S -s -X DELETE -H 'Content-type: application/json' http://hoschi:14339/api/v0/tariffs/$i ; done
+for i in `seq 1 50`; do curl -S -s -X DELETE -H 'Content-type: application/json' http://localhost:14339/api/v0/tariffs/$i ; done
 
 ## Preise anlegen ...
 echo \# Generating prices ...
-function price {  echo -n "$1" ; curl -o /dev/null -w '\t\t -> %{http_code}\n' -S -s -X POST -H 'Content-type: application/json' http://hoschi:14339/api/v0/prices -d "$1" ; }
+function price {  echo -n "$1" ; curl -o /dev/null -w '\t\t -> %{http_code}\n' -S -s -X POST -H 'Content-type: application/json' http://localhost:14339/api/v0/prices -d "$1" ; }
 # tschechische Biere
 price  '{"id":  1, "displayName": "Ležák 0,5 (Member)",                    "amount": 1, "amount_unit": "Flaschen", "price": 1.30, "price_unit": "EUR"}'
 price  '{"id":  2, "displayName": "Ležák 0,5 (Alien)",                     "amount": 1, "amount_unit": "Flaschen", "price": 2.50, "price_unit": "EUR"}'
@@ -65,7 +65,7 @@ price  '{"id": 46, "displayName": "Schokoriegel (div. Sorten)",            "amou
 
 ## Menüseiten generieren ...
 echo \# Generating tariffs ...
-function tariff {  echo -n "$1" ; curl -o /dev/null -w '\t\t -> %{http_code}\n' -S -s -X POST -H 'Content-type: application/json' http://hoschi:14339/api/v0/tariffs -d "$1" ; }
+function tariff {  echo -n "$1" ; curl -o /dev/null -w '\t\t -> %{http_code}\n' -S -s -X POST -H 'Content-type: application/json' http://localhost:14339/api/v0/tariffs -d "$1" ; }
 tariff '{"id":  1, "displayName": "Mixed"}'
 #tariff '{"id":  2, "displayName": "Member"}'
 #tariff '{"id":  3, "displayName": "Alien"}'
@@ -73,7 +73,7 @@ tariff '{"id":  1, "displayName": "Mixed"}'
 
 ## Menüpunkte zuordnen ...
 echo \# Generating items ...
-function item {  echo -n "$1" ; curl -o /dev/null -w '\t\t -> %{http_code}\n' -S -s -X POST -H 'Content-type: application/json' http://hoschi:14339/api/v0/items -d "$1" ; }
+function item {  echo -n "$1" ; curl -o /dev/null -w '\t\t -> %{http_code}\n' -S -s -X POST -H 'Content-type: application/json' http://localhost:14339/api/v0/items -d "$1" ; }
 ## Format:
 # item '{"id":  X, "displayName": "XXXXXXXXXXX", "tariff_id": X, "price_id": XXX, "meta": "{\"x\":X,\"y\":X,\"col\":X}"}'
 # col 0: 'normal', 1: member 2: alien 3: special
