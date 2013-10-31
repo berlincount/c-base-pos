@@ -67,9 +67,9 @@ price  '{"id": 46, "displayName": "Schokoriegel (div. Sorten)",            "amou
 echo \# Generating tariffs ...
 function tariff {  echo -n "$1" ; curl -o /dev/null -w '\t\t -> %{http_code}\n' -S -s -X POST -H 'Content-type: application/json' http://hoschi:14339/api/v0/tariffs -d "$1" ; }
 tariff '{"id":  1, "displayName": "Mixed"}'
-tariff '{"id":  2, "displayName": "Member"}'
-tariff '{"id":  3, "displayName": "Alien"}'
-tariff '{"id":  4, "displayName": "Party"}'
+#tariff '{"id":  2, "displayName": "Member"}'
+#tariff '{"id":  3, "displayName": "Alien"}'
+#tariff '{"id":  4, "displayName": "Party"}'
 
 ## Menüpunkte zuordnen ...
 echo \# Generating items ...
