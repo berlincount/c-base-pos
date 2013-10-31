@@ -12,7 +12,6 @@
     "position": "null",
     "resizable": false
   },
-  "nodejs": false,
   "webkit": {
     "plugin": false
   }
