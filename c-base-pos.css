@@ -843,3 +843,50 @@ footer#copyright {
   text-align:       center;
   font-size:        12px;
 }
+
+div.debugWindow {
+  background-color: #000000;
+}
+
+textarea.debugDisplay {
+  font-family: 'inconsolata';
+  font-size: 30px;
+  background-color: #000000;
+  color: #375f2a;
+  overflow: hidden;
+  width: 302px;
+  height: 64px;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: none
+}
+
+textarea.debugPrinter {
+  font-family: 'inconsolata';
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #000000;
+  width: 302px;
+  overflow: hidden;
+  height: 498px;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: none
+}
+
+div.debugCashDrawer {
+  font-family: 'inconsolata';
+  font-size: 30px;
+  color: #9ba8bf;
+  background-color: #0b1729;
+  // background-color: #690e0d;
+  width: 302px;
+  overflow: hidden;
+  height: 32px;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: none
+}

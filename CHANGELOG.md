@@ -1,3 +1,8 @@
+20131106
+--------
+- Added debug testing window for cash display & printer
+- Updated to JQuery 2.0.3
+
 20131031
 -------
 - Added test backend server
