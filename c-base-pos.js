@@ -25,6 +25,7 @@ function posRun() {
   if (SerialPort !== undefined) {
     posInitSerial();
   }
+  posInstallHandlers();
 }
 
 var posClock=null;
@@ -53,20 +54,48 @@ function posShowView(view) {
 
 function posEnableButtons(view) {
   console.log("posEnableButtons: "+view)
-  $('div').filter('.button').attr('disabled', true);
+  $('div.button').attr('disabled', true);
   switch(view) {
     case 'about':
       $('#keypad_x').removeAttr('disabled');
       break;
     case 'sales':
-      $('div').filter('.keypad').removeAttr('disabled');
-      $('div').filter('.menubar').removeAttr('disabled');
-      $('div').filter('.sales').removeAttr('disabled');
-      $('div').filter('.list_amt').removeAttr('disabled');
-      $('div').filter('.list_txt').removeAttr('disabled');
-      $('div').filter('.list_sum').removeAttr('disabled');
-      $('div').filter('.receipt').removeAttr('disabled');
+      $('div.keypad').removeAttr('disabled');
+      $('div.menubar').removeAttr('disabled');
+      $('div.sales').removeAttr('disabled');
+      $('div.list_amt').removeAttr('disabled');
+      $('div.list_txt').removeAttr('disabled');
+      $('div.list_sum').removeAttr('disabled');
+      $('div.receipt').removeAttr('disabled');
   }
+}
+
+function posInstallHandlers() {
+  // unbind all buttons
+  $('div.button').unbind();
+  $('div.button').unbind();
+
+  // make all of them look touch-able
+  $('div.button').hover(function(event){
+    // TODO: check why I'm getting the <span> not the <div> per default
+    var $target=$(event.target).parent('div');
+    if ($target.attr("disabled"))
+      return;
+    $target.attr("touched",true);
+  },function(event){
+    // TODO: check why I'm getting the <span> not the <div> per default
+    var $target=$(event.target).parent('div');
+    if ($target.attr("disabled"))
+      return;
+    $target.removeAttr("touched");
+  });
+
+  // install view-specific button handlers
+  $('div.button.sales').click(function(event){
+    // TODO: check why I'm getting the <span> not the <div> per default
+    var $target=$(event.target).parent('div');
+    alert($target.attr('id'));
+  });
 }
 
 var posCurrentState = 'unknown';
