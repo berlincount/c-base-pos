@@ -148,7 +148,7 @@ div.list_txt {
   height: 32px;
 }
 div.list_sum {
-  width: 101px;
+  width: 103px;
   height: 32px;
 }
 span.list_amt {
@@ -175,7 +175,7 @@ div#list_txt_0 {
 }
 div#list_sum_0 {
   top: 0px;
-  left: 250px;
+  left: 248px;
   text-align: right;
 }
 div#list_amt_1 {
@@ -190,7 +190,7 @@ div#list_txt_1 {
 }
 div#list_sum_1 {
   top: 34px;
-  left: 250px;
+  left: 248px;
   text-align: right;
 }
 div#list_amt_2 {
@@ -205,7 +205,7 @@ div#list_txt_2 {
 }
 div#list_sum_2 {
   top: 68px;
-  left: 250px;
+  left: 248px;
   text-align: right;
 }
 div#list_amt_3 {
@@ -220,7 +220,7 @@ div#list_txt_3 {
 }
 div#list_sum_3 {
   top: 72px;
-  left: 250px;
+  left: 248px;
   text-align: right;
 }
 div#list_amt_4 {
@@ -235,7 +235,7 @@ div#list_txt_4 {
 }
 div#list_sum_4 {
   top: 106px;
-  left: 250px;
+  left: 248px;
   text-align: right;
 }
 div#list_amt_5 {
@@ -250,7 +250,7 @@ div#list_txt_5 {
 }
 div#list_sum_5 {
   top: 140px;
-  left: 250px;
+  left: 248px;
   text-align: right;
 }
 div#list_amt_6 {
@@ -265,7 +265,7 @@ div#list_txt_6 {
 }
 div#list_sum_6 {
   top: 174px;
-  left: 250px;
+  left: 248px;
   text-align: right;
 }
 div#list_amt_7 {
@@ -280,7 +280,7 @@ div#list_txt_7 {
 }
 div#list_sum_7 {
   top: 208px;
-  left: 250px;
+  left: 248px;
   text-align: right;
 }
 div#list_txt_sum {
