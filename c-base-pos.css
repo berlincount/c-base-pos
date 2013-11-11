@@ -791,23 +791,29 @@ div.menubar {
 div#login {
   top: 0px;
   left: 0px;
-  width: 397px;
+  width: 294px;
 }
 span#login_txt {
   text-align: left;
 }
 div#menu {
   top: 0px;
-  left: 402px;
+  left: 299px;
+  width: 98px;
 }
 div#schedule {
   top: 0px;
-  left: 603px;
+  left: 402px;
 }
 div#howto {
   top: 0px;
+  left: 603px;
+}
+div#query {
+  top: 0px;
   left: 804px;
 }
+
 
 footer#log {
   height:           64px;
