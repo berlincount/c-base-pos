@@ -673,42 +673,25 @@ div.keypad {
   width: 85px;
   height: 80px;
 }
-div#keypad_alien {
+div#keypad_tariff1 {
   top: 0px;
   left: 0px;
-  height: 121px;
   font-size: 26px;
-  background-color: #690e0d;
-  color:            #ffffff;
 }
-div#keypad_alien[disabled] {
-   background-color: #0c1c2a;
-   color:            #22374c;
-}
-div#keypad_alien[touched] {
-   background-color: #0b1729;
-   color:            #690e0d;
-}
-div#keypad_query {
-  top: 123px;
+div#keypad_tariff2 {
+  top: 82px;
   left: 0px;
-  font-size: 32px;
-}
-div#keypad_member {
-  top: 205px;
-  left: 0px;
-  height: 121px;
   font-size: 26px;
-  background-color: #375f2a;
-  color:            #ffffff;
 }
-div#keypad_member[disabled] {
-  background-color: #0c1c2a;
-  color:            #22374c;
+div#keypad_tariff3 {
+  top: 164px;
+  left: 0px;
+  font-size: 26px;
 }
-div#keypad_member[touched] {
-  background-color: #0b1729;
-  color:            #375f2a;
+div#keypad_tariff4 {
+  top: 246px;
+  left: 0px;
+  font-size: 26px;
 }
 
 div#keypad_7 {
