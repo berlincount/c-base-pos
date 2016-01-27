@@ -1,10 +1,19 @@
-{ 
+{
   "main": "c-base-pos.html",
   "name": "c-base-pos",
-  "description": "c-base e.V. PoS node-webkit App",
-  "version": "0.1",
-  "user-agent": "c-base-pos/0.1",
-  "keywords": [ "c-base", "pos", "node-webkit" ],
+  "description": "c-base e.V. PoS nw App",
+  "license": "UNLICENSED",
+  "version": "0.9.0",
+  "user-agent": "c-base-pos/0.9",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/berlincount/c-base-pos.git"
+  },
+  "keywords": [
+    "c-base",
+    "pos",
+    "nw"
+  ],
   "window": {
     "toolbar": false,
     "width": 1366,
@@ -14,5 +23,28 @@
   },
   "webkit": {
     "plugin": false
+  },
+  "dependencies": {
+    "jquery": "^2.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.4.1"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "ie/6..latest",
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
+    ]
   }
 }
