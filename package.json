@@ -34,6 +34,7 @@
     "blanket": "^1.2.1",
     "jshint": "^2.5.10",
     "mocha-lcov-reporter": "0.0.1",
+    "coveralls": "^2.11.2",
     "chai": "^3.4.1",
     "mocha": "^2.4.1"
   },
