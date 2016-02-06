@@ -22,11 +22,11 @@
 /* provide our font */
 @font-face {
     font-family: 'inconsolata';
-    src: url('inconsolata-webfont.eot');
-    src: url('inconsolata-webfont.eot?#iefix') format('embedded-opentype'),
-         url('inconsolata-webfont.woff') format('woff'),
-         url('inconsolata-webfont.ttf') format('truetype'),
-         url('inconsolata-webfont.svg#inconsolatamedium') format('svg');
+    src: url('assets/inconsolata-webfont.eot');
+    src: url('assets/inconsolata-webfont.eot?#iefix') format('embedded-opentype'),
+         url('assets/inconsolata-webfont.woff') format('woff'),
+         url('assets/inconsolata-webfont.ttf') format('truetype'),
+         url('assets/inconsolata-webfont.svg#inconsolatamedium') format('svg');
     font-weight: normal;
     font-style: normal;
 }
