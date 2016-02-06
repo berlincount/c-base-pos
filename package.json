@@ -1,4 +1,5 @@
 {
+  "author": "Andreas Kotes <count-c-base-pos-github@flatline.de>",
   "main": "c-base-pos.html",
   "name": "c-base-pos",
   "description": "c-base e.V. PoS nw App",
@@ -30,23 +31,21 @@
     "sprintf-js": "^1.0.3"
   },
   "devDependencies": {
+    "blanket": "^1.2.1",
+    "jshint": "^2.5.10",
     "chai": "^3.4.1",
     "mocha": "^2.4.1"
   },
   "scripts": {
-    "test": "mocha test"
+    "test": "make test-cov"
   },
-  "testling": {
-    "files": "test/*.js",
-    "browsers": [
-      "ie/6..latest",
-      "chrome/22..latest",
-      "firefox/16..latest",
-      "safari/latest",
-      "opera/11.0..latest",
-      "iphone/6",
-      "ipad/6",
-      "android-browser/latest"
-    ]
+  "config": {
+    "blanket": {
+      "pattern": "lib",
+      "data-cover-never": "node_modules"
+    },
+    "travis-cov": {
+      "threshold": 23
+    }
   }
 }
