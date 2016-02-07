@@ -7,5 +7,5 @@ requirejs.config({
     }
 });
 
-requirejs(['lib/main']);
+requirejs(['lib/main'],function(main) { main.init(); main.run(); });
 

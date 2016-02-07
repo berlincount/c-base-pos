@@ -37,10 +37,15 @@
     "blanket": "^1.2.1",
     "chai": "^3.4.1",
     "coveralls": "^2.11.2",
+    "dirty-chai": "^1.2.2",
     "jshint": "^2.5.10",
     "mocha": "^2.4.1",
     "mocha-lcov-reporter": "0.0.1",
+    "mocha-sinon": "^1.1.5",
+    "mockery": "^1.4.0",
     "should": "^8.2.1",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0",
     "travis-cov": "^0.2.5"
   },
   "scripts": {
