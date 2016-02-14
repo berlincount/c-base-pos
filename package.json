@@ -13,11 +13,15 @@
   "keywords": [
     "c-base",
     "pos",
-    "nw"
+    "nwjs"
   ],
   "window": {
     "width": 1366,
     "height": 768,
+    "min_width": 1366,
+    "min_height": 768,
+    "max_width": 1366,
+    "max_height": 768,
     "position": null,
     "resizable": false
   },
@@ -25,6 +29,7 @@
     "plugin": false
   },
   "dependencies": {
+    "jquery": "^2.2.0",
     "requirejs": "^2.1.22",
     "serialport": "^2.0.6",
     "sprintf-js": "^1.0.3",
@@ -50,6 +55,7 @@
     "test": "make test-cov"
   },
   "config": {
+    "debug": true,
     "blanket": {
       "pattern": "lib",
       "data-cover-never": "node_modules"
