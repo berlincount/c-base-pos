@@ -30,6 +30,8 @@ describe('lib/debugwin', function() {
             debugwin.init();
 
             // check everything happened as expected
+
+            // should say what happened
             console.info.calledOnce.should.equal(true);
             console.info.getCall(0).args[0].should.equal('debugwin: not enabled.');
             console.warn.callCount.should.equal(0);
@@ -59,6 +61,8 @@ describe('lib/debugwin', function() {
             debugwin.init();
 
             // check everything happened as expected
+
+            // should say what happened
             console.info.calledOnce.should.equal(true);
             console.info.getCall(0).args[0].should.equal('debugwin: not enabled.');
             console.warn.callCount.should.equal(0);
@@ -68,6 +72,7 @@ describe('lib/debugwin', function() {
             // let's grab the output
             this.sinon.stub(console, 'info');
             this.sinon.stub(console, 'warn');
+            this.sinon.stub(global, 'setTimeout');
 
             // stub more of the NWJS environment
             var winStub            = sinon.stub();
@@ -84,24 +89,13 @@ describe('lib/debugwin', function() {
                 }
             };
 
-            // stub jQuery
-            var jqueryStub         = sinon.stub();
-            jqueryStub.html        = sinon.stub();
-            jqueryStub.html.onCall(0).returns('headStub');
-            jqueryStub.html.onCall(2).returns('htmlStub');
-            $                      = sinon.stub().returns(jqueryStub);
-
             // run library
             debugwin = proxyquire('lib/debugwin', {
                 'nw.gui':             nwguiStub,
-                'jquery':             jqueryStub
             });
             debugwin.init();
 
             // check everything happened as expected
-            console.info.calledOnce.should.equal(true);
-            console.info.getCall(0).args[0].should.equal('debugwin: enabled.');
-            console.warn.callCount.should.equal(0);
 
             // should have opened a window
             window.open.calledOnce.should.equal(true);
@@ -115,18 +109,18 @@ describe('lib/debugwin', function() {
             winStub.resizeTo.getCall(0).args[0].should.equal(332);
             winStub.resizeTo.getCall(0).args[1].should.equal(652);
 
-            // should have used jQuery to copy the head & html element from main app to debug window
-            $.callCount.should.equal(4);
-            jqueryStub.html.callCount.should.equal(4);
-            jqueryStub.html.getCall(0).args.length.should.equal(0);
-            jqueryStub.html.getCall(1).args.length.should.equal(1);
-            jqueryStub.html.getCall(1).args[0].should.equal('headStub');
-            jqueryStub.html.getCall(2).args.length.should.equal(0);
-            jqueryStub.html.getCall(3).args.length.should.equal(1);
-            jqueryStub.html.getCall(3).args[0].should.equal('htmlStub');
+            // should install a timer to refresh debug window display after a second
+            global.setTimeout.calledOnce.should.equal(true);
+            global.setTimeout.getCall(0).args.length.should.equal(2);
+            global.setTimeout.getCall(0).args[0].should.equal(debugwin.clearDisplay);
+            global.setTimeout.getCall(0).args[1].should.equal(1000);
+
+            // should say what happened
+            console.info.calledOnce.should.equal(true);
+            console.info.getCall(0).args[0].should.equal('debugwin: enabled.');
+            console.warn.callCount.should.equal(0);
 
             // clean up non-scoped variables
-            $      = undefined;
             window = undefined;
         });
 
@@ -134,6 +128,7 @@ describe('lib/debugwin', function() {
             // let's grab the output
             this.sinon.stub(console, 'info');
             this.sinon.stub(console, 'warn');
+            this.sinon.stub(global, 'setTimeout');
 
             // stub browser's window object
             var winStub            = sinon.stub();
@@ -143,23 +138,11 @@ describe('lib/debugwin', function() {
             window.location.hash   = "#debug";
             window.open            = sinon.stub().returns(winStub);
 
-            // stub jQuery
-            var jqueryStub         = sinon.stub();
-            jqueryStub.html        = sinon.stub();
-            jqueryStub.html.onCall(0).returns('headStub');
-            jqueryStub.html.onCall(2).returns('htmlStub');
-            $                      = sinon.stub().returns(jqueryStub);
-
             // run library
-            debugwin = proxyquire('lib/debugwin', {
-                'jquery':             jqueryStub
-            });
+            debugwin = require('lib/debugwin');
             debugwin.init();
 
             // check everything happened as expected
-            console.info.calledOnce.should.equal(true);
-            console.info.getCall(0).args[0].should.equal('debugwin: enabled.');
-            console.warn.callCount.should.equal(0);
 
             // should have opened a window
             window.open.calledOnce.should.equal(true);
@@ -171,18 +154,18 @@ describe('lib/debugwin', function() {
             // should have resized the window under NWJS - NOT on the browser
             winStub.resizeTo.callCount.should.equal(0);
 
-            // should have used jQuery to copy the head & html element from main app to debug window
-            $.callCount.should.equal(4);
-            jqueryStub.html.callCount.should.equal(4);
-            jqueryStub.html.getCall(0).args.length.should.equal(0);
-            jqueryStub.html.getCall(1).args.length.should.equal(1);
-            jqueryStub.html.getCall(1).args[0].should.equal('headStub');
-            jqueryStub.html.getCall(2).args.length.should.equal(0);
-            jqueryStub.html.getCall(3).args.length.should.equal(1);
-            jqueryStub.html.getCall(3).args[0].should.equal('htmlStub');
+            // should install a timer to refresh debug window display after a second
+            global.setTimeout.calledOnce.should.equal(true);
+            global.setTimeout.getCall(0).args.length.should.equal(2);
+            global.setTimeout.getCall(0).args[0].should.equal(debugwin.clearDisplay);
+            global.setTimeout.getCall(0).args[1].should.equal(1000);
+
+            // should say what happened
+            console.info.calledOnce.should.equal(true);
+            console.info.getCall(0).args[0].should.equal('debugwin: enabled.');
+            console.warn.callCount.should.equal(0);
 
             // clean up non-scoped variables
-            $      = undefined;
             window = undefined;
         });
 
@@ -196,37 +179,25 @@ describe('lib/debugwin', function() {
             window.location.hash   = "#debug";
             window.open            = sinon.stub();
 
-            // stub jQuery
-            var jqueryStub         = sinon.stub();
-            jqueryStub.html        = sinon.stub();
-            jqueryStub.html.onCall(0).returns('headStub');
-            jqueryStub.html.onCall(2).returns('htmlStub');
-            $                      = sinon.stub().returns(jqueryStub);
-
             // run library
-            debugwin = proxyquire('lib/debugwin', {
-                'jquery':             jqueryStub
-            });
+            debugwin = require('lib/debugwin');
             debugwin.init();
 
             // check everything happened as expected
-            console.info.callCount.should.equal(0);
-            console.warn.calledOnce.should.equal(true);
-            console.warn.getCall(0).args[0].should.equal('debugwin: cannot open requested debug window');
 
-            // should have opened a window
+            // should have tried to open a window
             window.open.calledOnce.should.equal(true);
             window.open.getCall(0).args.length.should.equal(3);
             window.open.getCall(0).args[0].should.equal('c-base-pos-ext.html');
             window.open.getCall(0).args[1].should.equal('c-base-pos Externals');
             window.open.getCall(0).args[2].should.equal('left=1380,top=151,innerHeight=610,innerWidth=314,dependent=yes,menubar=no,location=no,scrollbars=no,status=no');
 
-            // should have used jQuery to copy the head & html element from main app to debug window
-            $.callCount.should.equal(0);
-            jqueryStub.html.callCount.should.equal(0);
+            // should say what happened
+            console.info.callCount.should.equal(0);
+            console.warn.calledOnce.should.equal(true);
+            console.warn.getCall(0).args[0].should.equal('debugwin: cannot open requested debug window');
 
             // clean up non-scoped variables
-            $      = undefined;
             window = undefined;
         });
     });
