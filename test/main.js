@@ -60,7 +60,7 @@ describe('lib/main', function() {
 
             main.init();
             expect( console.info.calledOnce ).to.be.true();
-            expect( console.info.calledWith("c-base-pos v0.8; using JQuery disabled; node " + process.versions.node + "; userAgent none") ).to.be.true();
+            console.info.getCall(0).args[0].should.equal('c-base-pos v0.8; using JQuery disabled; node ' + process.versions.node + '; userAgent none');
         });
     });
     describe('#run()', function() {
