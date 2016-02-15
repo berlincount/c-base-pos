@@ -9,9 +9,9 @@ chai.use(require('sinon-chai'));
 chai.use(require('dirty-chai'));
 require('mocha-sinon');
 
-describe('lib/debugwin', function() {
-    describe('#init()', function() {
-        it('should detect disabled debugging under NWJS ', function() {
+describe('lib/debugwin', function debugwin_test() {
+    describe('#init()', function debugwin_test_init() {
+        it('should detect disabled debugging under NWJS', function debugwin_test_init1() {
             // let's grab the output
             this.sinon.stub(console, 'info');
             this.sinon.stub(console, 'warn');
@@ -37,7 +37,7 @@ describe('lib/debugwin', function() {
             console.warn.callCount.should.equal(0);
         });
 
-        it('should detect disabled debugging under Browsers ', function() {
+        it('should detect disabled debugging under Browsers', function debugwin_test_init2() {
             // let's grab the output
             this.sinon.stub(console, 'info');
             this.sinon.stub(console, 'warn');
@@ -68,7 +68,7 @@ describe('lib/debugwin', function() {
             console.warn.callCount.should.equal(0);
         });
 
-        it('should detect enabled debugging under NWJS, open window & resize', function() {
+        it('should detect enabled debugging under NWJS, open window & resize', function debugwin_test_init3() {
             // let's grab the output
             this.sinon.stub(console, 'info');
             this.sinon.stub(console, 'warn');
@@ -124,7 +124,7 @@ describe('lib/debugwin', function() {
             window = undefined;
         });
 
-        it('should detect enabled debugging under Browsers & open window', function() {
+        it('should detect enabled debugging under Browsers & open window', function debugwin_test_init4() {
             // let's grab the output
             this.sinon.stub(console, 'info');
             this.sinon.stub(console, 'warn');
@@ -169,7 +169,7 @@ describe('lib/debugwin', function() {
             window = undefined;
         });
 
-        it('should detect problems opening the window', function() {
+        it('should detect problems opening the window', function debugwin_test_init5() {
             this.sinon.stub(console, 'info');
             this.sinon.stub(console, 'warn');
 
