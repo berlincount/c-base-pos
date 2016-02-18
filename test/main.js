@@ -62,27 +62,46 @@ describe('lib/main', function main_test() {
             // shut up ;)
             this.sinon.stub(console, 'info');
 
+            // provide a global windows object to hook app from
+            window = sinon.stub();
+            expect( typeof window.app ).to.equal('undefined');
+
             main.init();
             expect( debugwinStub.init.calledOnce ).to.be.true();
             expect( serialStub.init.calledOnce   ).to.be.true();
             expect( clockStub.init.calledOnce    ).to.be.true();
             expect( viewsStub.init.calledOnce    ).to.be.true();
             expect( appStub.init.calledOnce      ).to.be.true();
+            expect( window.app ).to.equal(appStub);
+
+            // clean up non-scoped variables
+            window = undefined;
         });
 
         it('should send an info line to console', function main_test_init2() {
             // let's grab the output
             this.sinon.stub(console, 'info');
 
+            // provide a global windows object to hook app from
+            window = sinon.stub();
+            expect( typeof window.app ).to.equal('undefined');
+
             main.init();
             expect( console.info.calledOnce ).to.be.true();
             console.info.getCall(0).args[0].should.equal('c-base-pos v0.9; using JQuery stubbed; node ' + process.versions.node + '; userAgent stubbed');
+
+            // clean up non-scoped variables
+            window = undefined;
         });
     });
     describe('#run()', function main_test_run() {
         it('should run the main app when run itself', function main_test_run1() {
             // shut up ;)
             this.sinon.stub(console, 'info');
+
+            // provide a global windows object to hook app from
+            window = sinon.stub();
+            expect( typeof window.app ).to.equal('undefined');
 
             main.init();
             main.run();
@@ -92,6 +111,9 @@ describe('lib/main', function main_test() {
             expect( viewsStub.init.calledOnce    ).to.be.true();
             expect( appStub.init.calledOnce      ).to.be.true();
             expect( appStub.run.calledOnce       ).to.be.true();
+
+            // clean up non-scoped variables
+            window = undefined;
         });
     });
 });
