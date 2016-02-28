@@ -112,8 +112,8 @@ describe('lib/debugwin', function debugwin_test() {
             // should install a timer to refresh debug window display after a second
             global.setTimeout.calledOnce.should.equal(true);
             global.setTimeout.getCall(0).args.length.should.equal(2);
-            global.setTimeout.getCall(0).args[0].should.equal(debugwin.clearDisplay);
-            global.setTimeout.getCall(0).args[1].should.equal(1000);
+            global.setTimeout.getCall(0).args[0].should.equal(debugwin.resetDisplay);
+            global.setTimeout.getCall(0).args[1].should.equal(500);
 
             // should say what happened
             console.info.calledOnce.should.equal(true);
@@ -157,8 +157,8 @@ describe('lib/debugwin', function debugwin_test() {
             // should install a timer to refresh debug window display after a second
             global.setTimeout.calledOnce.should.equal(true);
             global.setTimeout.getCall(0).args.length.should.equal(2);
-            global.setTimeout.getCall(0).args[0].should.equal(debugwin.clearDisplay);
-            global.setTimeout.getCall(0).args[1].should.equal(1000);
+            global.setTimeout.getCall(0).args[0].should.equal(debugwin.resetDisplay);
+            global.setTimeout.getCall(0).args[1].should.equal(500);
 
             // should say what happened
             console.info.calledOnce.should.equal(true);

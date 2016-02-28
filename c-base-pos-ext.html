@@ -10,17 +10,55 @@
  <meta charset="utf-8">
  <link rel="stylesheet" type="text/css" href="c-base-pos.css">
  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+ <script src="node_modules/sprintf-js/dist/sprintf.min.js"></script>
  <script src="node_modules/undefine/dist/undefine-min.js"></script>
 
  <script>
-    window.addEventListener('message', function(event) {
+    var clockInterval;
+
+    function debugwin_window_handlemessage(data) {
+        if (typeof clockInterval != 'undefined') {
+            window.clearInterval(clockInterval);
+            clockInterval = undefined;
+        }
+
+        if (typeof data.debugWindow !== 'undefined') {
+            console.log("debugwin_window_handlemessage: setting debugWindow");
+            $('#debugWindow').html(data.debugWindow);
+        } else if (typeof data.clearDisplay !== 'undefined') {
+            console.log("debugwin_window_handlemessage: clearing display");
+            $('#debugDisplay').val('');
+        } else if (typeof data.displayClock !== 'undefined') {
+            console.log("debugwin_window_handlemessage: starting displayClock");
+            console.log(data.displayClock);
+            $('#debugDisplay').val(sprintf("%-19s\n", data.displayClock.versionString));
+            window.setTimeout(function debugwin_window_clockInit() {
+                $('#debugDisplay').val(sprintf(
+                        "%-19s\n%12s%02d:%02d:00",
+                        data.displayClock.versionString,
+                        '',
+                        data.displayClock.nextMinute.getHours(),
+                        data.displayClock.nextMinute.getMinutes()
+                ));
+                clockInterval =  window.setInterval(function debugwin_window_clockInterval() {
+                    var now = new Date((new Date()).getTime());
+                    $('#debugDisplay').val(sprintf(
+                        "%-19s\n%12s%02d:%02d:%02d",
+                        data.displayClock.versionString,
+                        '',
+                        now.getHours(),
+                        now.getMinutes(),
+                        now.getSeconds()
+                    ));
+                }, 1000);
+            }, data.displayClock.timeout);
+        }
+    }
+    window.addEventListener('message', function debugwin_window_listener(event) {
         // only trust the event if we know where it came from
         if (event.origin == "null" || ~event.origin.indexOf('chrome-extension://')) {
             console.log('received a message:', event);
-            if (typeof event.data.debugWindow !== 'undefined') {
-                console.log("setting debugWindow");
-                $('#debugWindow').html(event.data.debugWindow);
-            }
+            debugwin_window_handlemessage(event.data);
         } else {
             console.log('received a bogus message:', event);
         }
@@ -30,11 +68,11 @@
 <body>
 <div id="debugWindow" class="debugWindow">
 <form>
-<textarea class='debugDisplay' cols=20 rows=2 readonly>
+<textarea class='debugDisplay' cols=20 rows=2 readonly wrap=off>
 Loading ...
     ... not done yet
 </textarea></br>
-<textarea class='debugPrinter' cols=42 readonly>
+<textarea class='debugPrinter' cols=42 readonly wrap=off>
 Loading ...
 </textarea></br>
 <div class='debugCashDrawer'>Loading ...</div>
