@@ -12,32 +12,33 @@ require('mocha-sinon');
 describe('lib/main', function main_test() {
     beforeEach(function main_test_beforeEach(){
             // stub internal modules
-            debugwinStub        = sinon.stub();
-            debugwinStub.init   = sinon.stub();
-            serialStub          = sinon.stub();
-            serialStub.init     = sinon.stub();
-            clockStub           = sinon.stub();
-            clockStub.init      = sinon.stub();
-            viewsStub           = sinon.stub();
-            viewsStub.init      = sinon.stub();
-            appStub             = sinon.stub();
-            appStub.init        = sinon.stub();
-            appStub.run         = sinon.stub();
+            debugwinStub          = sinon.stub();
+            debugwinStub.init     = sinon.stub();
+            serialStub            = sinon.stub();
+            serialStub.init       = sinon.stub();
+            clockStub             = sinon.stub();
+            clockStub.init        = sinon.stub();
+            viewsStub             = sinon.stub();
+            viewsStub.init        = sinon.stub();
+            appStub               = sinon.stub();
+            appStub.versionString = 'versionString';
+            appStub.init          = sinon.stub();
+            appStub.run           = sinon.stub();
 
             // stub stub modules
-            var consoleStub     = sinon.stub();
-            consoleStub.init    = sinon.stub();
-            var processStub     = sinon.stub();
-            processStub.init    = sinon.stub();
-            var navigatorStub   = sinon.stub();
-            navigatorStub.init  = sinon.stub();
+            var consoleStub       = sinon.stub();
+            consoleStub.init      = sinon.stub();
+            var processStub       = sinon.stub();
+            processStub.init      = sinon.stub();
+            var navigatorStub     = sinon.stub();
+            navigatorStub.init    = sinon.stub();
 
             // stub navigator & jquery
-            navigator           = navigatorStub;
-            navigator.userAgent = 'stubbed';
-            var jqueryStub      = sinon.stub();
-            var jqueryStubStub  = sinon.stub().returns(jqueryStub); // .returnsThis() doesn't work?
-            jqueryStub.jquery   = 'stubbed';
+            navigator             = navigatorStub;
+            navigator.userAgent   = 'stubbed';
+            var jqueryStub        = sinon.stub();
+            var jqueryStubStub    = sinon.stub().returns(jqueryStub); // .returnsThis() doesn't work?
+            jqueryStub.jquery     = 'stubbed';
 
             main = proxyquire('lib/main', {
                 'lib/debugwin':       debugwinStub,
@@ -88,7 +89,7 @@ describe('lib/main', function main_test() {
 
             main.init();
             expect( console.info.calledOnce ).to.be.true();
-            console.info.getCall(0).args[0].should.equal('c-base-pos v0.9; using JQuery stubbed; node ' + process.versions.node + '; userAgent stubbed');
+            console.info.getCall(0).args[0].should.equal('versionString; using JQuery stubbed; node ' + process.versions.node + '; userAgent stubbed');
 
             // clean up non-scoped variables
             window = undefined;
