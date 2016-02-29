@@ -133,10 +133,10 @@ aside#sales_side {
   font-size: 26px;
 }
 div.receipt {
-  top: 242px;
+  top: 272px;
   left: 0px;
   width: 85px;
-  height: 62px;
+  height: 52px;
   font-size: 38px;
 }
 div.list_amt {
@@ -209,85 +209,85 @@ div#list_sum_2 {
   text-align: right;
 }
 div#list_amt_3 {
-  top: 72px;
+  top: 102px;
   left: 0px;
   text-align: right;
 }
 div#list_txt_3 {
-  top: 72px;
+  top: 102px;
   left: 90px;
   text-align: left;
 }
 div#list_sum_3 {
-  top: 72px;
+  top: 102px;
   left: 248px;
   text-align: right;
 }
 div#list_amt_4 {
-  top: 106px;
+  top: 136px;
   left: 0px;
   text-align: right;
 }
 div#list_txt_4 {
-  top: 106px;
+  top: 136px;
   left: 90px;
   text-align: left;
 }
 div#list_sum_4 {
-  top: 106px;
+  top: 136px;
   left: 248px;
   text-align: right;
 }
 div#list_amt_5 {
-  top: 140px;
+  top: 170px;
   left: 0px;
   text-align: right;
 }
 div#list_txt_5 {
-  top: 140px;
+  top: 170px;
   left: 90px;
   text-align: left;
 }
 div#list_sum_5 {
-  top: 140px;
+  top: 170px;
   left: 248px;
   text-align: right;
 }
 div#list_amt_6 {
-  top: 174px;
+  top: 204px;
   left: 0px;
   text-align: right;
 }
 div#list_txt_6 {
-  top: 174px;
+  top: 204px;
   left: 90px;
   text-align: left;
 }
 div#list_sum_6 {
-  top: 174px;
+  top: 204px;
   left: 248px;
   text-align: right;
 }
 div#list_amt_7 {
-  top: 208px;
+  top: 238px;
   left: 0px;
   text-align: right;
 }
 div#list_txt_7 {
-  top: 208px;
+  top: 238px;
   left: 90px;
   text-align: left;
 }
 div#list_sum_7 {
-  top: 208px;
+  top: 238px;
   left: 248px;
   text-align: right;
 }
 div#list_txt_sum {
-  top: 242px;
+  top: 272px;
   left: 90px;
   width: 261px;
-  height: 62px;
+  height: 52px;
   font-size: 32px;
 }
 span#listentry_txt_sum {
@@ -658,7 +658,7 @@ div#key_underscore {
 
 aside#keypad {
   height: 411px;
-  top: 350px;
+  top: 368px;
   background-color: #000;
   text-align: center;
   font-size: 48px;
@@ -666,7 +666,7 @@ aside#keypad {
 }
 div.keypad {
   width: 85px;
-  height: 80px;
+  height: 74px;
 }
 div#keypad_tariff1 {
   top: 0px;
@@ -674,17 +674,17 @@ div#keypad_tariff1 {
   font-size: 26px;
 }
 div#keypad_tariff2 {
-  top: 82px;
+  top: 78px;
   left: 0px;
   font-size: 26px;
 }
 div#keypad_tariff3 {
-  top: 164px;
+  top: 156px;
   left: 0px;
   font-size: 26px;
 }
 div#keypad_tariff4 {
-  top: 246px;
+  top: 234px;
   left: 0px;
   font-size: 26px;
 }
@@ -702,44 +702,45 @@ div#keypad_9 {
   left: 266px;
 }
 div#keypad_4 {
-  top: 82px;
+  top: 78px;
   left: 90px;
 }
 div#keypad_5 {
-  top: 82px;
+  top: 78px;
   left: 178px;
 }
 div#keypad_6 {
-  top: 82px;
+  top: 78px;
   left: 266px;
 }
 div#keypad_1 {
-  top: 164px;
+  top: 156px;
   left: 90px;
 }
 div#keypad_2 {
-  top: 164px;
+  top: 156px;
   left: 178px;
 }
 div#keypad_3 {
-  top: 164px;
+  top: 156px;
   left: 266px;
 }
 div#keypad_comma {
-  top: 246px;
+  top: 234px;
   left: 90px;
 }
 div#keypad_0 {
-  top: 246px;
+  top: 234px;
   left: 178px;
 }
 div#keypad_ok {
-  top: 246px;
+  top: 234px;
   left: 266px;
 }
 div#keypad_x {
-  top: 331px;
+  top: 312px;
   left: 0px;
+  height: 78px;
   background-color: #690e0d;
   color:            #ffffff;
 }
@@ -752,9 +753,10 @@ div#keypad_x[touched] {
   color:            #690e0d;
 }
 div#keypad_enter {
-  top: 331px;
+  top: 312px;
   left: 90px;
   width: 261px;
+  height: 78px;
   background-color: #375f2a;
   color:            #ffffff;
 }
