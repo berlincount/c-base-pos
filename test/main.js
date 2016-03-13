@@ -20,6 +20,8 @@ describe('lib/main', function main_test() {
             clockStub.init        = sinon.stub();
             viewsStub             = sinon.stub();
             viewsStub.init        = sinon.stub();
+            datastoreStub         = sinon.stub();
+            datastoreStub.init    = sinon.stub();
             appStub               = sinon.stub();
             appStub.versionString = 'versionString';
             appStub.init          = sinon.stub();
@@ -45,6 +47,7 @@ describe('lib/main', function main_test() {
                 'lib/serial':         serialStub,
                 'lib/clock':          clockStub,
                 'lib/views':          viewsStub,
+                'lib/datastore':      datastoreStub,
                 'lib/app':            appStub,
 
                 'lib/console_stub':   consoleStub,
@@ -68,11 +71,12 @@ describe('lib/main', function main_test() {
             expect( typeof window.app ).to.equal('undefined');
 
             main.init();
-            expect( debugwinStub.init.calledOnce ).to.be.true();
-            expect( serialStub.init.calledOnce   ).to.be.true();
-            expect( clockStub.init.calledOnce    ).to.be.true();
-            expect( viewsStub.init.calledOnce    ).to.be.true();
-            expect( appStub.init.calledOnce      ).to.be.true();
+            expect( debugwinStub.init.calledOnce  ).to.be.true();
+            expect( serialStub.init.calledOnce    ).to.be.true();
+            expect( clockStub.init.calledOnce     ).to.be.true();
+            expect( viewsStub.init.calledOnce     ).to.be.true();
+            expect( datastoreStub.init.calledOnce ).to.be.true();
+            expect( appStub.init.calledOnce       ).to.be.true();
             expect( window.app ).to.equal(appStub);
 
             // clean up non-scoped variables
@@ -106,12 +110,13 @@ describe('lib/main', function main_test() {
 
             main.init();
             main.run();
-            expect( debugwinStub.init.calledOnce ).to.be.true();
-            expect( serialStub.init.calledOnce   ).to.be.true();
-            expect( clockStub.init.calledOnce    ).to.be.true();
-            expect( viewsStub.init.calledOnce    ).to.be.true();
-            expect( appStub.init.calledOnce      ).to.be.true();
-            expect( appStub.run.calledOnce       ).to.be.true();
+            expect( debugwinStub.init.calledOnce  ).to.be.true();
+            expect( serialStub.init.calledOnce    ).to.be.true();
+            expect( clockStub.init.calledOnce     ).to.be.true();
+            expect( viewsStub.init.calledOnce     ).to.be.true();
+            expect( datastoreStub.init.calledOnce ).to.be.true();
+            expect( appStub.init.calledOnce       ).to.be.true();
+            expect( appStub.run.calledOnce        ).to.be.true();
 
             // clean up non-scoped variables
             window = undefined;

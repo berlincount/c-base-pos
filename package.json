@@ -31,7 +31,7 @@
   "dependencies": {
     "debug": "^2.2.0",
     "jquery": "^2.2.0",
-    "node-pre-gyp": "^0.6.21",
+    "jsonapi-datastore": "github:beauby/jsonapi-datastore",
     "requirejs": "^2.1.22",
     "serialport": "^2.0.6",
     "sprintf-js": "^1.0.3",
